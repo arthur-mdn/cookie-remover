@@ -129,7 +129,7 @@ function hideElements() {
                                 ) {
                                     addToHistory(actionInfo).then(() => {
                                         lastCount++;
-                                        chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
+                                        chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
                                     });
                                 }
@@ -144,7 +144,7 @@ function hideElements() {
                                 ) {
                                     addToHistory(actionInfo).then(() => {
                                         lastCount++;
-                                        chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
+                                        chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
                                     });
                                 }
@@ -164,7 +164,7 @@ function hideElements() {
                                 ) {
                                     addToHistory(actionInfo).then(() => {
                                         lastCount++;
-                                        chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
+                                        chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
                                     });
                                 }

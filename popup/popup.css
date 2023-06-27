@@ -150,6 +150,13 @@ form{
     display: flex;
     justify-content: center;
     margin-top: 5px;
+    gap: 4px;
+}
+.lastCountEffective{
+    cursor: pointer;
+}
+.lastCountEffective:hover{
+    opacity: 0.6;
 }
 
 h3{

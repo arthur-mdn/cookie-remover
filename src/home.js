@@ -266,13 +266,16 @@ function showHome() {
         if(request.type === "increment_lastCount"){
             if(request.message === "0"){
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Aucune action effectuée.";
+                document.getElementById("lastCount").classList.remove("lastCountEffective");
             }
             else if(request.message === "1"){
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> 1 action effectuée.";
+                document.getElementById("lastCount").classList.add("lastCountEffective");
                 document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
             }
             else{
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> " + request.message +" actions effectuées.";
+                document.getElementById("lastCount").classList.add("lastCountEffective");
                 document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
             }
         }
