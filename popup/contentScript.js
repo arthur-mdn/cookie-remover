@@ -1,4 +1,4 @@
-
+//contentScript.js
 function executeScriptInCurrentTab(func, params) {
     return new Promise((resolve, reject) => {
         const browserAPI = chrome || browser;
@@ -104,7 +104,7 @@ function hideElements() {
         }
 
         chrome.storage.local.get(
-            ["banlist", "lastCount", "brute"],
+            ["banlist", "brute"],
             function (result) {
                 let lastCount = 0;
 
@@ -176,6 +176,7 @@ function hideElements() {
                     }
                 });
                 chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
+                // chrome.runtime.sendMessage({ type: "ban_success", message: "${lastCount}" });
                 // chrome.storage.local.set({ count: count }, function () {});
                 // chrome.storage.local.set({ lastCount: lastCount }, function () {});
             }

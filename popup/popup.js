@@ -103,7 +103,6 @@ window.onload = () => {
             loadContent.call(document.getElementById("add"));
         } else {
             loadContent.call(document.getElementById("home"));
-
         }
         for(let i = 0; i < buttons.length; i++) {
             // Clone the button and replace the old button with the clone
@@ -124,6 +123,13 @@ window.onload = () => {
             setUnavailableTabsCauseSelection();
         }else{
             setAvailableTabs();
+        }
+    });
+
+    chrome.action.getBadgeText({}, (text) => {
+        if (text) { // S'il y a du texte dans le badge (c'est-à-dire si un badge est présent)
+            chrome.action.setBadgeText({text: ""}); // Effacer le badge
+            loadContent.call(document.getElementById("history"));
         }
     });
 

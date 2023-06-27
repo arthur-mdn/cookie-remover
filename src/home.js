@@ -171,7 +171,7 @@ function showHome() {
             }
 
             chrome.storage.local.get(
-                ["banlist", "lastCount", "brute"],
+                ["banlist", "brute"],
                 function (result) {
                     let lastCount = 0;
 
@@ -275,5 +275,7 @@ function showHome() {
             }
         }
     });
+
+
 
 }
