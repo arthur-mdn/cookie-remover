@@ -175,7 +175,7 @@ function hideElements() {
                             console.error(`Selector invalide : ${selector}`);
                     }
                 });
-                chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
+                chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                 // chrome.runtime.sendMessage({ type: "ban_success", message: "${lastCount}" });
                 // chrome.storage.local.set({ count: count }, function () {});
                 // chrome.storage.local.set({ lastCount: lastCount }, function () {});

@@ -118,7 +118,7 @@ function showHome() {
 
                         return new Promise((resolve, reject) => {
                             chrome.storage.local.set({ history: history }, function () {
-                                console.log(`Action added to history: ${actionInfo}`);
+                                //console.log(`Action added to history: ${actionInfo}`);
                                 resolve();
                             });
                         });
