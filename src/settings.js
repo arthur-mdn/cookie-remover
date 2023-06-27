@@ -142,6 +142,42 @@ function showSettings(){
 
     });
 
+
+    chrome.storage.local.get("cleanAuto", function(result) {
+        let cleanAuto = result.cleanAuto || false;
+
+// Create a container div
+        let cleanAutoContainer = document.createElement("div");
+
+// Create a checkbox
+        let cleanAutoCheckbox = document.createElement("input");
+        cleanAutoCheckbox.type = "checkbox";
+        cleanAutoCheckbox.id = "cleanAutoCheckbox";
+        cleanAutoCheckbox.checked = cleanAuto;
+
+// Add event listener to update the value of cleanAuto in storage when the checkbox is clicked
+        cleanAutoCheckbox.addEventListener('change', function() {
+            let checked = this.checked; // Store the value in a variable
+            chrome.storage.local.set({"cleanAuto": checked}, function() {
+                console.log('cleanAuto set to ' + checked);
+            });
+        });
+
+// Create a label element
+        let cleanAutoLabel = document.createElement("label");
+        cleanAutoLabel.innerText = "Nettoyage automatique";
+        cleanAutoLabel.setAttribute("for","cleanAutoCheckbox");
+
+// Append the checkbox to the container
+        cleanAutoContainer.appendChild(cleanAutoCheckbox);
+
+// Append the label to the container
+        cleanAutoContainer.appendChild(cleanAutoLabel);
+
+// Add the container to the settings container
+        settingsContainer.appendChild(cleanAutoContainer);
+    });
+
     
 
     chrome.storage.local.get("history", function(result) {

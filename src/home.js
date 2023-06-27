@@ -12,13 +12,81 @@ function showHome() {
 
     addCleanButtonListener();
 
-    function launchBan() {
+
+    function banCurrentPage(currentPageUrl) {
         let storage = chrome.storage || browser.storage;
-        storage.local.get(["banlist"], function(result) {
-            const banlist = result.banlist || [];
-            handleBanAll(banlist);
+        storage.local.get(["bannedPages"], function(result) {
+            const bannedPages = result.bannedPages || [];
+            if (!bannedPages.includes(currentPageUrl)) {
+                bannedPages.push(currentPageUrl);
+                storage.local.set({ "bannedPages": bannedPages }, function() {
+                    banCurrentPageCheckbox.checked = true;
+                });
+            }
         });
     }
+
+    function unbanCurrentPage(currentPageUrl) {
+        let storage = chrome.storage || browser.storage;
+        storage.local.get(["bannedPages"], function(result) {
+            const bannedPages = result.bannedPages || [];
+            const index = bannedPages.indexOf(currentPageUrl);
+            if (index !== -1) {
+                bannedPages.splice(index, 1);
+                storage.local.set({ "bannedPages": bannedPages }, function() {
+                    banCurrentPageCheckbox.checked = false;
+                });
+            }
+        });
+    }
+
+
+    const banCurrentPageCheckbox = document.getElementById('banCurrentPage');
+    banCurrentPageCheckbox.addEventListener('change', function(event) {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            const currentPageUrl = tabs[0].url;
+            if (event.target.checked) {
+                // L'utilisateur a coché la case: bannir la page actuelle
+                banCurrentPage(currentPageUrl);
+            } else {
+                // L'utilisateur a décoché la case: ne pas bannir la page actuelle
+                unbanCurrentPage(currentPageUrl);
+            }
+        });
+    });
+
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        const currentPageUrl = tabs[0].url;
+        let storage = chrome.storage || browser.storage;
+        storage.local.get(["bannedPages"], function(result) {
+            const bannedPages = result.bannedPages || [];
+            banCurrentPageCheckbox.checked = bannedPages.includes(currentPageUrl);
+        });
+    });
+
+    let storage = chrome.storage || browser.storage;
+    storage.local.get(["cleanAuto"], function(result) {
+        if (result.cleanAuto) {
+            document.getElementById("banCurrentPageLabel").style.display = "inline";
+        }
+    });
+
+
+
+
+
+    function launchBan() {
+        let storage = chrome.storage || browser.storage;
+        storage.local.get(["banlist", "bannedPages"], function(result) {
+            const banlist = result.banlist || [];
+            const bannedPages = result.bannedPages || [];
+            const currentPageUrl = window.location.href;
+            if (!bannedPages.includes(currentPageUrl)) {
+                handleBanAll(banlist);
+            }
+        });
+    }
+
 
     function hideElements() {
         return new Promise((resolve, reject) => {
@@ -32,7 +100,7 @@ function showHome() {
 
                     chrome.storage.local.set({ totalCount: totalCount }, function() {
                         // Stocker la nouvelle valeur de totalCount
-                        console.log("totalCount incremented and stored: " + totalCount);
+                        // console.log("totalCount incremented and stored: " + totalCount);
                     });
                 });
             }
