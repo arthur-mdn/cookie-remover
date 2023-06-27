@@ -105,7 +105,7 @@ form{
 .rule{
     display: flex;
     background-color: var(--card-bg-color);
-
+    word-break: break-all;
     box-shadow: var(--shadow-medium);
     justify-content: space-between;
     padding: 10px;

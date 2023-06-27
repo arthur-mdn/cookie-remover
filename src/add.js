@@ -90,12 +90,21 @@ function showForm(){
         }
     }
 
+
+
+
     function startElementSelection() {
-        isSelecting = true;
-        document.getElementById("selectButton").innerHTML = "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i><span>Annuler</span>";
-        executeScriptInCurrentTab(selectElement, {});
-        console.log('ici');
-        setUnavailableTabsCauseSelection();
+        executeScriptInCurrentTab(selectElement, {})
+            .then(() => {
+                isSelecting = true;
+                document.getElementById("selectButton").innerHTML = "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i><span>Annuler</span>";
+                setUnavailableTabsCauseSelection();
+            })
+            .catch((error) => {
+            document.getElementById("need_to_cancel_selection_2").innerHTML = "<i class=\"fa fa-times\" aria-hidden=\"true\"></i> Désolé, l'extension ne peut pas être utilisée sur cette page.";
+            document.getElementById("need_to_cancel_selection_2").style.color = "red";
+            document.getElementById("need_to_cancel_selection_2").style.display = "block";
+        });
     }
 
     function cancelSelection() {
