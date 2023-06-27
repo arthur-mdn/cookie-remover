@@ -43,7 +43,7 @@ function showHistory() {
 
                 // Ajouter le timestamp après l'icône
                 let textSpan = document.createElement('span');
-                textSpan.textContent = ` ${timestamp} (${ actionList.length})`;
+                textSpan.innerHTML = ` ${timestamp} <span style="color:#409ceb; font-weight: bold;">(${ actionList.length})</span>`;
                 timestampDiv.appendChild(textSpan);
 
                 historyContainer.appendChild(timestampDiv);
@@ -108,6 +108,8 @@ function showHistory() {
 
                     historyContainer.appendChild(actionDiv);
                 });
+                document.getElementById("loadingHistory").style.display = "none"; //remove loading screen
+
                 // Ajouter un gestionnaire d'événements 'click' au timestampDiv
                 timestampDiv.addEventListener('click', function() {
                     // Basculer l'affichage des éléments d'action pour ce timestamp

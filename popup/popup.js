@@ -95,7 +95,7 @@ window.onload = () => {
         }
     }
     function setAvailableTabs(){
-        console.log(tabParam);
+        // console.log(tabParam);
         if (tabParam === 'list') {
             // Load the "List" tab content
             loadContent.call(document.getElementById("list"));
