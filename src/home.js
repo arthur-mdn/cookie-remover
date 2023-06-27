@@ -269,9 +269,11 @@ function showHome() {
             }
             else if(request.message === "1"){
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> 1 action effectuée.";
+                document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
             }
             else{
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> " + request.message +" actions effectuées.";
+                document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
             }
         }
     });

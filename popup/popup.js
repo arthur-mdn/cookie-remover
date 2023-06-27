@@ -101,6 +101,8 @@ window.onload = () => {
             loadContent.call(document.getElementById("list"));
         } else if (tabParam === 'add') {
             loadContent.call(document.getElementById("add"));
+        } else if (tabParam === 'history') {
+            loadContent.call(document.getElementById("history"));
         } else {
             loadContent.call(document.getElementById("home"));
         }
