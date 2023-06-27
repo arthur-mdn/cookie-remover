@@ -33,6 +33,9 @@ function showHistory() {
                 let actionList = groupedHistory[timestamp];
 
                 let timestampDiv = document.createElement('div');
+                timestampDiv.style.display = "flex";
+                timestampDiv.style.gap = "5px";
+                timestampDiv.style.justifyContent = "center";
                 timestampDiv.textContent = `${timestamp}`;
                 historyContainer.appendChild(timestampDiv);
 
