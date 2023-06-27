@@ -1,0 +1,196 @@
+
+:root {
+    --text-color: black;
+    --sub-text-color: grey;
+    --placeholder-text-color: #cfcfcf;
+    --bg-color: #f0f0f0;
+    --card-bg-color: #ffffff;
+    --sub-card-bg-color: #f0f0f0;
+    --activated-color: #409ceb;
+    --filter--black-to-white: invert(100%) sepia(0%) saturate(0%) hue-rotate(31deg) brightness(100%) contrast(101%);
+
+    --shadow-medium: 0 4px 6px -1px rgb(205 207 255 / 10%), 0 2px 4px -1px rgb(19 0 149 / 6%);
+}
+
+body, html {
+    height: fit-content!important;
+}
+body{
+    font-family: Arial, sans-serif;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+input, button, select{
+    background-color: var(--card-bg-color);
+    border: 1.5px solid var(--placeholder-text-color);
+    color: var(--text-color);
+}
+.input_container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.input_container select, .input_container input{
+    padding: 7px;
+    width: 100%;
+    border-radius: 5px;
+    border-width: 1px;
+}
+.clean_button, .add_button{
+    cursor: pointer;
+    background-color: #409ceb;
+    border: 0;
+    color:white;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    justify-content: center;
+}
+.clean_button:hover, .add_button:hover{
+    background-color: #72b3eb;
+}
+.clean_button img{
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.toggler_container{
+    display: flex;
+    justify-content: center;
+}
+.toggler_container label:hover{
+    opacity: 0.6;
+    cursor: pointer;
+}
+.tab_form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.tab_form button{
+    cursor: pointer;
+    width: 100%;
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+.tab_form button.selected{
+    border-bottom: 2px solid #409ceb;
+}
+.tab_form button.disabled{
+    opacity: 0.5;
+    cursor: not-allowed!important;
+}
+.tab_form button:hover{
+    opacity: 0.6;
+}
+.tab_form button:not(:last-child) {
+    border-right: 1px solid lightgray;
+}
+
+.rule{
+    display: flex;
+    background-color: var(--card-bg-color);
+
+    box-shadow: var(--shadow-medium);
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 3px;
+}
+#rulesContainer, #historyContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 2px;
+}
+
+.rule button{
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    font-size: 1.2rem;
+}
+.rule button:hover{
+    color: red;
+}
+.rule button.disabled{
+    cursor: not-allowed;
+    color: #d4d4d4!important;
+}
+
+.iconAndInfoDiv{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.iconAndInfoDiv i{
+    font-size: 1.5rem;
+}
+
+#lastCount{
+    color: rgb(64, 156, 235);
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+h3{
+    margin-top: 0;
+    margin-right: auto;
+    color: #409ceb;
+    font-size: 1.2rem;
+}
+#clearHistoryButton{
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+#clearHistoryButton:hover{
+    opacity: 0.7;
+}
+
+#showDefaultCheckbox, label[for="showDefaultCheckbox"], #bruteCheckbox, label[for="bruteCheckbox"], #darkmodeCheckbox, label[for="darkmodeCheckbox"]{
+    cursor: pointer;
+}
+#showDefaultCheckbox:hover, label[for="showDefaultCheckbox"]:hover, #bruteCheckbox:hover, label[for="bruteCheckbox"]:hover, #darkmodeCheckbox:hover, label[for="darkmodeCheckbox"]:hover{
+    opacity: 0.8;
+}
+
+.select_button{
+    padding: 7px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.select_button:hover{
+    opacity: 0.7;
+}
+
+.need_to_cancel_selection{
+    color:red;
+    margin-bottom: 3px;
+    display: block;
+}

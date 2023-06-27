@@ -1,0 +1,16 @@
+{
+  "name": "Cookie Remover",
+  "version": "0.0.0.1",
+  "manifest_version": 3,
+  "permissions": ["scripting", "activeTab", "tabs", "storage"],
+  "background": {
+    "service_worker": "popup/background.js"
+  },
+  "description": "An extension to remove a lot of cookies banners without accepting them.",
+  "icons": {
+    "256": "icons/cookie256x256.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}

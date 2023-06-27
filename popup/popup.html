@@ -1,0 +1,30 @@
+<!-- popup.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Cookie Remover</title>
+    <script src="/src/home.js"></script>
+    <script src="/src/intercept.js"></script>
+    <script src="/src/list.js"></script>
+    <script src="/src/settings.js"></script>
+    <script src="/src/add.js"></script>
+    <script src="/src/history.js"></script>
+    <link rel="stylesheet" href="popup.css">
+    <link rel="stylesheet" href="/src/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--    <script src="https://kit.fontawesome.com/ea144339a2.js" crossorigin="anonymous"></script>-->
+</head>
+<body>
+<form method="get" class="tab_form">
+    <button type="button" id="home" class="tab-button"><i class="fa fa-home" aria-hidden="true"></i>Accueil</button>
+    <button type="button" id="add" class="tab-button"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</button>
+    <button type="button" id="list" class="tab-button"><i class="fa fa-list-ul" aria-hidden="true"></i>Liste</button>
+    <button type="button" id="history" class="tab-button"><i class="fa fa-clock-o" aria-hidden="true"></i>Historique</button>
+    <button type="button" id="settings" class="tab-button"><i class="fa fa-cog" aria-hidden="true"></i>Paramètres</button>
+</form>
+
+<div id="content"></div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!-- add.html -->
+<div id="form_container">
+    <form id="banForm">
+        <h3>Ajouter une action</h3>
+        <div id="selector_choice" style="display: none;width: 100%;">
+            <span style="display: none" class="need_to_cancel_selection" id="need_to_cancel_selection">Vous avez une sélection en cours.</span>
+            <button type="button" id="cancelSelectButton" class="select_button">
+                <i class="fa fa-stop" aria-hidden="true"></i>
+                <span>Annuler la sélection</span>
+            </button>
+            <p>Choisissez le sélecteur le plus pertinent.</p>
+
+        </div>
+        <br>
+        <div id="selector_default" style="width: 100%;">
+            <div class="input_container">
+                <label>Sélectionner en fonction de</label>
+                <span style="display: none" class="need_to_cancel_selection" id="need_to_cancel_selection_2">Vous avez une sélection en cours.</span>
+                <button type="button" id="selectButton" class="select_button">
+                    <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
+                    <span>Sélectionner</span>
+                </button>
+<br>
+                <select name="banSelector" required>
+                    <option value="id">id</option>
+                    <option value="class">class</option>
+                    <option value="querySelector">querySelector</option>
+                </select>
+            </div>
+            <br>
+            <div class="input_container">
+                <label>Valeur à sélectionner</label>
+                <input type="text" name="banSelection" required>
+            </div>
+        </div>
+
+        <br>
+        <div class="input_container">
+            <label>Action à effectuer</label>
+            <select name="banAction" required>
+                <option value="hide">Cacher l'élément</option>
+                <option value="addClass">Ajouter une classe</option>
+                <option value="removeClass">Supprimer une classe</option>
+            </select>
+        </div>
+        <br>
+        <div class="input_container modify_options" style="display: none;">
+            <div class="input_container">
+                <label>Nom de la classe</label>
+                <input type="text" name="banActionValue" id="banActionValue" required disabled>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="add_button"><i class="fa fa-plus" aria-hidden="true"></i>Ajouter</button>
+    </form>
+</div>
