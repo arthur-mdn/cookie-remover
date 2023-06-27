@@ -43,7 +43,7 @@ function showHistory() {
 
                 // Ajouter le timestamp après l'icône
                 let textSpan = document.createElement('span');
-                textSpan.textContent = ` ${timestamp}`;
+                textSpan.textContent = ` ${timestamp} (${ actionList.length})`;
                 timestampDiv.appendChild(textSpan);
 
                 historyContainer.appendChild(timestampDiv);
@@ -93,12 +93,6 @@ function showHistory() {
                         actionNameDiv.textContent = `Ajouter la classe : .${action.actionValue} `;
                     }
                     infosDiv.appendChild(actionNameDiv);
-
-                    let dateDiv = document.createElement('div');
-                    let date = new Date(action.timestamp);
-                    let formattedDate = date.toLocaleString(); // Utilise le format de date/heure local
-                    // dateDiv.textContent = `${formattedDate}`;
-                    infosDiv.appendChild(dateDiv);
 
                     let urlDiv = document.createElement('div');
                     urlDiv.textContent = `${action.url}`;
