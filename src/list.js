@@ -29,11 +29,33 @@ function showList(){
                 }
                 if (index === nonDefaultRules.length && showDefault === true) {
                     let defaultRulesLabel = document.createElement('p');
-                    defaultRulesLabel.innerHTML = "<i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i> Actions par défaut <i class=\"fa fa-arrow-down\" aria-hidden=\"true\"></i>";
-                    defaultRulesLabel.style.display = "flex";
-                    defaultRulesLabel.style.gap = "5px";
-                    defaultRulesLabel.style.justifyContent = "center";
+                    defaultRulesLabel.innerHTML = "<i class=\"fa fa-arrow-up\" aria-hidden=\"true\"></i> Actions par défaut";
+                    defaultRulesLabel.classList.add("history_enrouleur");
+
                     rulesContainer.appendChild(defaultRulesLabel);
+
+                    // Ajouter un gestionnaire d'événements 'click' au defaultRulesLabel
+                    defaultRulesLabel.addEventListener('click', function() {
+                        // Basculer l'affichage des éléments d'action
+                        let default_rules = document.getElementsByClassName("default_rule");
+                        for (let i = 0; i < default_rules.length; i++) {
+                            let default_rule = default_rules[i];
+                            if (default_rule.style.display === "none") {
+                                default_rule.style.display = "flex";
+                            } else {
+                                default_rule.style.display = "none";
+                            }
+                        }
+                        // Modifier l'icône en fonction de l'état d'affichage
+                        let icon = defaultRulesLabel.querySelector("i");
+                        if (icon.classList.contains("fa-arrow-down")) {
+                            icon.classList.remove("fa-arrow-down");
+                            icon.classList.add("fa-arrow-up");
+                        } else {
+                            icon.classList.remove("fa-arrow-up");
+                            icon.classList.add("fa-arrow-down");
+                        }
+                    });
                 }
 
                 // If the rule is a default rule and showDefault is false, skip to the next rule
@@ -43,7 +65,9 @@ function showList(){
                 }
                 let ruleDiv = document.createElement('div');
                 ruleDiv.classList.add("rule");
-
+                if (rule.default === true) {
+                    ruleDiv.classList.add("default_rule");
+                }
                 let iconAndInfoDiv = document.createElement('div');
                 iconAndInfoDiv.classList.add("iconAndInfoDiv");
 

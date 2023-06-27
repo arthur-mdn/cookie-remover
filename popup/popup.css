@@ -194,3 +194,13 @@ h3{
     margin-bottom: 3px;
     display: block;
 }
+
+.history_enrouleur{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    cursor: pointer;
+}
+.history_enrouleur:hover{
+    opacity: 0.5;
+}

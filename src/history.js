@@ -33,11 +33,23 @@ function showHistory() {
                 let actionList = groupedHistory[timestamp];
 
                 let timestampDiv = document.createElement('div');
-                timestampDiv.style.display = "flex";
-                timestampDiv.style.gap = "5px";
-                timestampDiv.style.justifyContent = "center";
-                timestampDiv.textContent = `${timestamp}`;
+                timestampDiv.classList.add("history_enrouleur");
+
+                // Créer un élément i pour afficher l'icône
+                let iconI = document.createElement('i');
+                iconI.className = 'fa fa-arrow-up'; // Par défaut, les éléments sont enroulés
+                iconI.setAttribute('aria-hidden', 'true');
+                timestampDiv.appendChild(iconI);
+
+                // Ajouter le timestamp après l'icône
+                let textSpan = document.createElement('span');
+                textSpan.textContent = ` ${timestamp}`;
+                timestampDiv.appendChild(textSpan);
+
                 historyContainer.appendChild(timestampDiv);
+
+                // Créer un tableau pour stocker les éléments d'action pour ce timestamp
+                let actionDivs = [];
 
                 actionList.forEach((action) => {
                     let actionDiv = document.createElement('div');
@@ -98,7 +110,24 @@ function showHistory() {
 
                     actionDiv.appendChild(iconAndInfoDiv);
 
+                    actionDivs.push(actionDiv);
+
                     historyContainer.appendChild(actionDiv);
+                });
+                // Ajouter un gestionnaire d'événements 'click' au timestampDiv
+                timestampDiv.addEventListener('click', function() {
+                    // Basculer l'affichage des éléments d'action pour ce timestamp
+                    actionDivs.forEach(function(actionDiv) {
+                        if (actionDiv.style.display === 'none') {
+                            actionDiv.style.display = 'block';
+                            iconI.className = 'fa fa-arrow-up';
+
+                        } else {
+                            actionDiv.style.display = 'none';
+                            iconI.className = 'fa fa-arrow-down';
+
+                        }
+                    });
                 });
             }
         }
