@@ -116,6 +116,13 @@ window.onload = () => {
         }
     }
 
+    chrome.action.getBadgeText({}, (text) => {
+        if (text) { // S'il y a du texte dans le badge (c'est-à-dire si un badge est présent)
+            chrome.action.setBadgeText({text: ""}); // Effacer le badge
+            loadContent.call(document.getElementById("history"));
+        }
+    });
+
     // Charger l'élément sélectionné du stockage lorsque la popup s'ouvre
     chrome.storage.local.get('selectedElement', function(data) {
         const elementInfo = data.selectedElement;
@@ -128,12 +135,7 @@ window.onload = () => {
         }
     });
 
-    chrome.action.getBadgeText({}, (text) => {
-        if (text) { // S'il y a du texte dans le badge (c'est-à-dire si un badge est présent)
-            chrome.action.setBadgeText({text: ""}); // Effacer le badge
-            loadContent.call(document.getElementById("history"));
-        }
-    });
+
 
 
 

@@ -76,7 +76,7 @@ function hideElements() {
                             actionDone = true;
                         }
                     } else {
-                        console.warn(
+                        console.log(
                             "Tentative de cacher ou de supprimer un élément <html> ou <body>"
                         );
                     }
@@ -194,10 +194,31 @@ function launchBan() {
         const bannedPages = result.bannedPages || [];
         const currentPageUrl = window.location.href;
         if (!bannedPages.includes(currentPageUrl)) {
-            handleBanAll(banlist);
+            let intervalId = setInterval(function() {
+                handleBanAll(banlist);
+
+                // Verifier si l'élément est caché, alors arrêter la répétition
+                // Note: Remplacer 'selector' et 'selection' avec les vraies valeurs
+                let element;
+                switch (selector) {
+                    case 'id':
+                        element = document.getElementById(selection);
+                        break;
+                    case 'class':
+                        element = document.getElementsByClassName(selection)[0];
+                        break;
+                    case 'querySelector':
+                        element = document.querySelector(selection);
+                        break;
+                }
+                if (!element || element.style.display === 'none') {
+                    clearInterval(intervalId);
+                }
+            }, 1000);  // Répéter chaque seconde
         }
     });
 }
+
 
 
 let storage = chrome.storage || browser.storage;
