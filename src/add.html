@@ -14,14 +14,15 @@
         <br>
         <div id="selector_default" style="width: 100%;">
             <div class="input_container">
-                <label>Sélectionner en fonction de</label>
                 <span style="display: none" class="need_to_cancel_selection" id="need_to_cancel_selection_2">Vous avez une sélection en cours.</span>
                 <button type="button" id="selectButton" class="select_button">
                     <i class="fa fa-hand-pointer-o" aria-hidden="true"></i>
                     <span>Sélectionner</span>
                 </button>
 <br>
-                <select name="banSelector" required>
+                <label for="banSelector">Sélectionner en fonction de</label>
+
+                <select name="banSelector" id="banSelector" required>
                     <option value="id">id</option>
                     <option value="class">class</option>
                     <option value="querySelector">querySelector</option>
