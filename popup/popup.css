@@ -183,12 +183,14 @@ h3{
 
 .select_button{
     padding: 7px 10px;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     gap: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #409ceb;
+    color: white;
 
 }
 

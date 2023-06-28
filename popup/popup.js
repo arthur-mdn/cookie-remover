@@ -82,13 +82,11 @@ window.onload = () => {
             buttons[i].classList.add("disabled");
             buttons[i].addEventListener("click", function(){
                 // loadContent.call(document.getElementById("add"));
-                document.getElementById("cancelSelectButton").style.border = "1px solid red";
-                document.getElementById("cancelSelectButton").style.color = "red";
+                document.getElementById("cancelSelectButton").style.border = "2px solid darkred";
                 document.getElementById("need_to_cancel_selection").style.display = "block";
                 clearTimeout(myTimeout);
                 myTimeout = setTimeout(function(){
                     document.getElementById("cancelSelectButton").style.border = "1.5px solid var(--placeholder-text-color)";
-                    document.getElementById("cancelSelectButton").style.color = "var(--text-color)";
                     document.getElementById("need_to_cancel_selection").style.display = "none";
                 }, 1000);
             });

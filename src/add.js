@@ -12,13 +12,12 @@ function showForm(){
             newButton.classList.add("disabled");
             newButton.addEventListener("click", function(){
                 // loadContent.call(document.getElementById("add"));
-                document.getElementById("selectButton").style.border = "1px solid red";
-                document.getElementById("selectButton").style.color = "red";
+                document.getElementById("selectButton").style.border = "2px solid darkred";
+                document.getElementById("selectButton").style.backgroundColor = "red";
                 document.getElementById("need_to_cancel_selection_2").style.display = "block";
                 clearTimeout(myTimeout);
                 myTimeout = setTimeout(function(){
                     document.getElementById("selectButton").style.border = "1.5px solid var(--placeholder-text-color)";
-                    document.getElementById("selectButton").style.color = "var(--text-color)";
                     document.getElementById("need_to_cancel_selection_2").style.display = "none";
                 }, 1000);
             });
@@ -98,6 +97,7 @@ function showForm(){
             .then(() => {
                 isSelecting = true;
                 document.getElementById("selectButton").innerHTML = "<i class=\"fa fa-stop\" aria-hidden=\"true\"></i><span>Annuler</span>";
+                document.getElementById("selectButton").style.backgroundColor = "red";
                 setUnavailableTabsCauseSelection();
             })
             .catch((error) => {
