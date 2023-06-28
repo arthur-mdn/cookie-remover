@@ -63,7 +63,7 @@ window.onload = () => {
 
     // Check if the URL contains the query parameter "tab=list"
     const urlParams = new URLSearchParams(window.location.search);
-    const tabParam = urlParams.get('tab');
+    let tabParam = urlParams.get('tab');
 
     // if (tabParam === 'list') {
     //     // Load the "List" tab content
@@ -120,6 +120,8 @@ window.onload = () => {
         if (text) { // S'il y a du texte dans le badge (c'est-à-dire si un badge est présent)
             chrome.action.setBadgeText({text: ""}); // Effacer le badge
             loadContent.call(document.getElementById("history"));
+            tabParam = "history";
+            setAvailableTabs();
         } else {
             // Charger l'élément sélectionné du stockage lorsque la popup s'ouvre
             chrome.storage.local.get('selectedElement', function(data) {
