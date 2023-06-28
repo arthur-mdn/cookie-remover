@@ -104,7 +104,7 @@ function showHome() {
                     });
                 });
             }
-            function addToHistory(actionInfo) {
+            function addToHistory(actionInfo, brute) {
                 historyUpdateQueue = historyUpdateQueue
                     .then(() => {
                         return new Promise((resolve, reject) => {
@@ -114,6 +114,9 @@ function showHome() {
                         });
                     })
                     .then((history) => {
+                        if (brute && actionInfo.action === "hide") {
+                            actionInfo.action = "destroy";
+                        }
                         history.push(actionInfo);
 
                         return new Promise((resolve, reject) => {
@@ -194,7 +197,7 @@ function showHome() {
                                     if (
                                         handleAction(element, action, actionValue, result.brute)
                                     ) {
-                                        addToHistory(actionInfo).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -209,7 +212,7 @@ function showHome() {
                                     if (
                                         handleAction(elements[i], action, actionValue, result.brute)
                                     ) {
-                                        addToHistory(actionInfo).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -229,7 +232,7 @@ function showHome() {
                                             result.brute
                                         )
                                     ) {
-                                        addToHistory(actionInfo).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
