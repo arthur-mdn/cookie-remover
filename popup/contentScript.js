@@ -187,6 +187,7 @@ function handleBanAll(banlist) {
     hideElements();  // Vous n'avez pas besoin de passer banlist, hideElements peut y accéder directement depuis le stockage
 }
 
+
 function launchBan() {
     let storage = chrome.storage || browser.storage;
     storage.local.get(["banlist", "bannedPages"], function(result) {

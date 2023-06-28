@@ -120,21 +120,20 @@ window.onload = () => {
         if (text) { // S'il y a du texte dans le badge (c'est-à-dire si un badge est présent)
             chrome.action.setBadgeText({text: ""}); // Effacer le badge
             loadContent.call(document.getElementById("history"));
+        } else {
+            // Charger l'élément sélectionné du stockage lorsque la popup s'ouvre
+            chrome.storage.local.get('selectedElement', function(data) {
+                const elementInfo = data.selectedElement;
+                if (elementInfo) { // Ceci vérifie déjà si elementInfo est défini et non vide
+                    // Faire quelque chose avec les informations de l'élément, comme les afficher dans la popup
+                    loadContent.call(document.getElementById("add"));
+                    setUnavailableTabsCauseSelection();
+                }else{
+                    setAvailableTabs();
+                }
+            });
         }
     });
-
-    // Charger l'élément sélectionné du stockage lorsque la popup s'ouvre
-    chrome.storage.local.get('selectedElement', function(data) {
-        const elementInfo = data.selectedElement;
-        if (elementInfo) { // Ceci vérifie déjà si elementInfo est défini et non vide
-            // Faire quelque chose avec les informations de l'élément, comme les afficher dans la popup
-            loadContent.call(document.getElementById("add"));
-            setUnavailableTabsCauseSelection();
-        }else{
-            setAvailableTabs();
-        }
-    });
-
 
 
 
