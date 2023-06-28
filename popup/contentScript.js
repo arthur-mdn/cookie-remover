@@ -194,30 +194,35 @@ function launchBan() {
         const bannedPages = result.bannedPages || [];
         const currentPageUrl = window.location.href;
         if (!bannedPages.includes(currentPageUrl)) {
-            let intervalId = setInterval(function() {
-                handleBanAll(banlist);
+            // Parcourir chaque règle de la banlist
+            banlist.forEach((rule) => {
+                const { selector, selection } = rule; // Récupérer le sélecteur et la sélection de chaque règle
 
-                // Verifier si l'élément est caché, alors arrêter la répétition
-                // Note: Remplacer 'selector' et 'selection' avec les vraies valeurs
-                let element;
-                switch (selector) {
-                    case 'id':
-                        element = document.getElementById(selection);
-                        break;
-                    case 'class':
-                        element = document.getElementsByClassName(selection)[0];
-                        break;
-                    case 'querySelector':
-                        element = document.querySelector(selection);
-                        break;
-                }
-                if (!element || element.style.display === 'none') {
-                    clearInterval(intervalId);
-                }
-            }, 1000);  // Répéter chaque seconde
+                let intervalId = setInterval(function() {
+                    handleBanAll(banlist);
+
+                    // Verifier si l'élément est caché, alors arrêter la répétition
+                    let element;
+                    switch (selector) {
+                        case 'id':
+                            element = document.getElementById(selection);
+                            break;
+                        case 'class':
+                            element = document.getElementsByClassName(selection)[0];
+                            break;
+                        case 'querySelector':
+                            element = document.querySelector(selection);
+                            break;
+                    }
+                    if (!element || element.style.display === 'none') {
+                        clearInterval(intervalId);
+                    }
+                }, 1000);  // Répéter chaque seconde
+            });
         }
     });
 }
+
 
 
 
