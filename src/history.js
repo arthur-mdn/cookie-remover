@@ -63,6 +63,9 @@ function showHistory() {
                     if(action.action === "hide"){
                         iconDiv.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>`;
                         iconDiv.title = `Cacher l'élément`;
+                    }else if(action.action === "destroy"){
+                        iconDiv.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+                        iconDiv.title = `Détruire l'élément`;
                     }else if(action.action === "removeClass"){
                         iconDiv.innerHTML = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
                         iconDiv.title = `Retirer une classe à l'élément`;
@@ -87,6 +90,8 @@ function showHistory() {
                     let actionNameDiv = document.createElement('div');
                     if(action.action === "hide"){
                         actionNameDiv.textContent = `Cacher l'élément`;
+                    }else if(action.action === "destroy"){
+                        actionNameDiv.textContent = `Détruire l'élément`;
                     }else if(action.action === "removeClass"){
                         actionNameDiv.textContent = `Retirer la classe : .${action.actionValue} `;
                     }else if(action.action === "addClass"){

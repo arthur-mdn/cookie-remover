@@ -37,7 +37,7 @@ function hideElements() {
                 });
             });
         }
-        function addToHistory(actionInfo) {
+        function addToHistory(actionInfo, brute) {
             historyUpdateQueue = historyUpdateQueue
                 .then(() => {
                     return new Promise((resolve, reject) => {
@@ -47,6 +47,9 @@ function hideElements() {
                     });
                 })
                 .then((history) => {
+                    if (brute && actionInfo.action === "hide") {
+                        actionInfo.action = "destroy";
+                    }
                     history.push(actionInfo);
 
                     return new Promise((resolve, reject) => {
@@ -70,6 +73,7 @@ function hideElements() {
                     ) {
                         if (brute) {
                             element.remove();
+                            action = "destroy";
                             actionDone = true;
                         } else if (element.style.display !== "none") {
                             element.style.display = "none";
@@ -77,7 +81,7 @@ function hideElements() {
                         }
                     } else {
                         console.log(
-                            "Tentative de cacher ou de supprimer un élément <html> ou <body>"
+                            "Tentative de cacher ou de détruire un élément <html> ou <body>"
                         );
                     }
                     break;
@@ -127,7 +131,7 @@ function hideElements() {
                                 if (
                                     handleAction(element, action, actionValue, result.brute)
                                 ) {
-                                    addToHistory(actionInfo).then(() => {
+                                    addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
@@ -142,7 +146,7 @@ function hideElements() {
                                 if (
                                     handleAction(elements[i], action, actionValue, result.brute)
                                 ) {
-                                    addToHistory(actionInfo).then(() => {
+                                    addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
@@ -162,7 +166,7 @@ function hideElements() {
                                         result.brute
                                     )
                                 ) {
-                                    addToHistory(actionInfo).then(() => {
+                                    addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
                                         incrementTotal();
