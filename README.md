@@ -18,7 +18,7 @@ Un système de sélection d'élément au clic avec indicateur visuel de la séle
 
 - Télécharger le code source.
 - Décompresser l'archive.
-- Ouvrir Chrome ou Edge. g
+- Ouvrir Chrome ou Edge.
 - Se rendre sur la page Extensions ("[chrome://extensions/](chrome://extensions/)" ou "[edge://extensions/](edge://extensions/)");
 - Activer le mode développeur.
 - Cliquer sur "Charger l’extension décompressée".
