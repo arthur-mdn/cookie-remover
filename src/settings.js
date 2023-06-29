@@ -180,6 +180,43 @@ function showSettings(){
 
     
 
+    chrome.storage.local.get("bannedFromAutoCleanWebsites", function(result) {
+        let bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
+        console.log(bannedFromAutoCleanWebsites);
+
+        // Create a container div for the 'clear history' button
+        let bannedFromAutoCleanWebsitesContainer = document.createElement("div");
+        bannedFromAutoCleanWebsitesContainer.style.display = "flex";
+        bannedFromAutoCleanWebsitesContainer.style.justifyContent = "center";
+
+        // Create the 'clear history' button
+        let clearbannedFromAutoCleanWebsitesButton = document.createElement("button");
+        clearbannedFromAutoCleanWebsitesButton.id = "clearbannedFromAutoCleanWebsitesButton";
+        clearbannedFromAutoCleanWebsitesButton.innerText = "Supprimer les pages bannies";
+
+        // If history is empty, disable the button
+        if (bannedFromAutoCleanWebsites.length === 0) {
+            clearbannedFromAutoCleanWebsitesButton.disabled = true;
+        }
+
+        // Add event listener to clear the history when the button is clicked
+        clearbannedFromAutoCleanWebsitesButton.addEventListener('click', function() {
+            let confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer les pages bannies ? Cette action est irréversible.");
+            if(confirmed) {
+                chrome.storage.local.set({"bannedFromAutoCleanWebsites": []}, function() {
+                    console.log('Pages bannies effacé');
+                });
+            }
+        });
+
+        // Append the button to the container
+        bannedFromAutoCleanWebsitesContainer.appendChild(clearbannedFromAutoCleanWebsitesButton);
+
+        // Add the container to the settings container
+        settingsContainer.appendChild(bannedFromAutoCleanWebsitesContainer);
+    });
+
+
     chrome.storage.local.get("history", function(result) {
         let history = result.history || [];
 
@@ -214,6 +251,8 @@ function showSettings(){
         // Add the container to the settings container
         settingsContainer.appendChild(clearHistoryContainer);
     });
+
+
 
     chrome.storage.local.get("totalCount", function(result) {
         let totalCount = result.totalCount || 0;

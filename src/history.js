@@ -104,6 +104,10 @@ function showHistory() {
                     urlDiv.style.color = "lightgrey";
                     infosDiv.appendChild(urlDiv);
 
+                    let elementDiv = document.createElement('div');
+                    elementDiv.textContent = `${action.element}`;
+                    infosDiv.appendChild(elementDiv);
+
                     iconAndInfoDiv.appendChild(iconDiv);
                     iconAndInfoDiv.appendChild(infosDiv);
 

@@ -104,8 +104,14 @@ function hideElements() {
                     console.error(`Action non reconnue : ${action}`);
             }
 
-            return actionDone;
+            if (actionDone) {
+                // Ajoutez cette ligne pour stocker le contenu HTML de l'élément
+                return { actionDone: true, elementHTML: element.outerHTML };
+            } else {
+                return { actionDone: false, elementHTML: null };
+            }
         }
+
 
         chrome.storage.local.get(
             ["banlist", "brute"],
@@ -128,9 +134,9 @@ function hideElements() {
                         case "id":
                             const element = document.getElementById(selection);
                             if (element) {
-                                if (
-                                    handleAction(element, action, actionValue, result.brute)
-                                ) {
+                                const actionResult = handleAction(element, action, actionValue, result.brute);
+                                if (actionResult.actionDone) {
+                                    actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
@@ -143,9 +149,9 @@ function hideElements() {
                         case "class":
                             const elements = document.getElementsByClassName(selection);
                             for (let i = 0; i < elements.length; i++) {
-                                if (
-                                    handleAction(elements[i], action, actionValue, result.brute)
-                                ) {
+                                const actionResult = handleAction(elements[i], action, actionValue, result.brute);
+                                if (actionResult.actionDone) {
+                                    actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
@@ -158,14 +164,9 @@ function hideElements() {
                         case "querySelector":
                             const selectedElements = document.querySelectorAll(selection);
                             for (let i = 0; i < selectedElements.length; i++) {
-                                if (
-                                    handleAction(
-                                        selectedElements[i],
-                                        action,
-                                        actionValue,
-                                        result.brute
-                                    )
-                                ) {
+                                const actionResult = handleAction(selectedElements[i], action, actionValue, result.brute);
+                                if (actionResult.actionDone) {
+                                    actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {
                                         lastCount++;
                                         chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
@@ -180,9 +181,6 @@ function hideElements() {
                     }
                 });
                 chrome.runtime.sendMessage({ type: "increment_lastCount_background", message: `${lastCount}` });
-                // chrome.runtime.sendMessage({ type: "ban_success", message: "${lastCount}" });
-                // chrome.storage.local.set({ count: count }, function () {});
-                // chrome.storage.local.set({ lastCount: lastCount }, function () {});
             }
         );
     });
@@ -194,11 +192,17 @@ function handleBanAll(banlist) {
 
 function launchBan() {
     let storage = chrome.storage || browser.storage;
-    storage.local.get(["banlist", "bannedPages"], function(result) {
+    storage.local.get(["banlist", "bannedFromAutoCleanWebsites"], function(result) {
+
+        function getHostName(url) {
+            const urlObj = new URL(url);
+            return urlObj.hostname;
+        }
         const banlist = result.banlist || [];
-        const bannedPages = result.bannedPages || [];
+        const bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
         const currentPageUrl = window.location.href;
-        if (!bannedPages.includes(currentPageUrl)) {
+        const currentDomain = getHostName(currentPageUrl); // get the domain name
+        if (!bannedFromAutoCleanWebsites.includes(currentDomain)) { // check if the domain name is not in the banned pages
             // Parcourir chaque règle de la banlist
             banlist.forEach((rule) => {
                 const { selector, selection } = rule; // Récupérer le sélecteur et la sélection de chaque règle
