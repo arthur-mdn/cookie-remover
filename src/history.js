@@ -105,6 +105,7 @@ function showHistory() {
                     infosDiv.appendChild(urlDiv);
 
                     let elementDiv = document.createElement('div');
+                    console.log(action);
                     elementDiv.textContent = `${action.element}`;
                     infosDiv.appendChild(elementDiv);
 

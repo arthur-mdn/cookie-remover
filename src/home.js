@@ -13,20 +13,20 @@ function showHome() {
     addCleanButtonListener();
 
 
-    function banCurrentPage(currentPageUrl) {
+    function banCurrentWebsite(currentPageUrl) {
         let storage = chrome.storage || browser.storage;
         storage.local.get(["bannedFromAutoCleanWebsites"], function(result) {
             const bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
             if (!bannedFromAutoCleanWebsites.includes(currentPageUrl)) {
                 bannedFromAutoCleanWebsites.push(currentPageUrl);
                 storage.local.set({ "bannedFromAutoCleanWebsites": bannedFromAutoCleanWebsites }, function() {
-                    banCurrentPageCheckbox.checked = true;
+                    banCurrentWebsiteCheckbox.checked = true;
                 });
             }
         });
     }
 
-    function unbanCurrentPage(currentPageUrl) {
+    function unbanCurrentWebsite(currentPageUrl) {
         let storage = chrome.storage || browser.storage;
         storage.local.get(["bannedFromAutoCleanWebsites"], function(result) {
             const bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
@@ -34,7 +34,7 @@ function showHome() {
             if (index !== -1) {
                 bannedFromAutoCleanWebsites.splice(index, 1);
                 storage.local.set({ "bannedFromAutoCleanWebsites": bannedFromAutoCleanWebsites }, function() {
-                    banCurrentPageCheckbox.checked = false;
+                    banCurrentWebsiteCheckbox.checked = false;
                 });
             }
         });
@@ -45,17 +45,17 @@ function showHome() {
         return urlObj.hostname;
     }
 
-    const banCurrentPageCheckbox = document.getElementById('banCurrentPage');
-    banCurrentPageCheckbox.addEventListener('change', function(event) {
+    const banCurrentWebsiteCheckbox = document.getElementById('banCurrentWebsite');
+    banCurrentWebsiteCheckbox.addEventListener('change', function(event) {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             const currentPageUrl = tabs[0].url;
             const hostName = getHostName(currentPageUrl);
             if (event.target.checked) {
                 // L'utilisateur a coché la case: bannir le site actuel
-                banCurrentPage(hostName);
+                banCurrentWebsite(hostName);
             } else {
                 // L'utilisateur a décoché la case: ne pas bannir le site actuel
-                unbanCurrentPage(hostName);
+                unbanCurrentWebsite(hostName);
             }
         });
     });
@@ -66,14 +66,14 @@ function showHome() {
         let storage = chrome.storage || browser.storage;
         storage.local.get(["bannedFromAutoCleanWebsites"], function(result) {
             const bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
-            banCurrentPageCheckbox.checked = bannedFromAutoCleanWebsites.includes(hostName);
+            banCurrentWebsiteCheckbox.checked = bannedFromAutoCleanWebsites.includes(hostName);
         });
     });
 
     let storage = chrome.storage || browser.storage;
     storage.local.get(["cleanAuto"], function(result) {
         if (result.cleanAuto) {
-            document.getElementById("banCurrentPageLabel").style.display = "inline";
+            document.getElementById("banCurrentWebsiteLabel").style.display = "inline";
         }
     });
 
