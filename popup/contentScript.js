@@ -63,6 +63,11 @@ function hideElements() {
             return historyUpdateQueue;
         }
 
+        function getOpeningElement(elementHTML) {
+            const closingTagIndex = elementHTML.indexOf('>');
+            return elementHTML.slice(0, closingTagIndex + 1);
+        }
+
         function handleAction(element, action, actionValue, brute) {
             let actionDone = false;
             switch (action) {
@@ -106,7 +111,7 @@ function hideElements() {
 
             if (actionDone) {
                 // Ajoutez cette ligne pour stocker le contenu HTML de l'élément
-                return { actionDone: true, elementHTML: element.outerHTML };
+                return { actionDone: true, elementHTML: getOpeningElement(element.outerHTML) };
             } else {
                 return { actionDone: false, elementHTML: null };
             }
@@ -117,12 +122,13 @@ function hideElements() {
             ["banlist", "brute"],
             function (result) {
                 let lastCount = 0;
+                let timestampOfLaunching = new Date().toISOString();
 
                 result.banlist.forEach((rule) => {
                     const { selector, selection, action, actionValue } = rule;
 
                     let actionInfo = {
-                        timestamp: new Date().toISOString(),
+                        timestamp: timestampOfLaunching,
                         url: window.location.href,
                         selector: selector,
                         selection: selection,

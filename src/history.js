@@ -105,8 +105,7 @@ function showHistory() {
                     infosDiv.appendChild(urlDiv);
 
                     let elementDiv = document.createElement('div');
-                    console.log(action);
-                    elementDiv.textContent = `${action.element}`;
+                    elementDiv.textContent = `${action.elementHTML}`;
                     infosDiv.appendChild(elementDiv);
 
                     iconAndInfoDiv.appendChild(iconDiv);
