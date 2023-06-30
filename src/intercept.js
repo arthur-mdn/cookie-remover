@@ -12,13 +12,13 @@ function handleSubmit() {
         alert('Merci de saisir un selector valide.');
         return;
     }
-    let authorized_actions = ["hide", "removeClass", "addClass"];
+    let authorized_actions = ["hide", "removeClass", "addClass", "addStyle"];
     if (!authorized_actions.includes(banAction)) {
         alert('Merci de saisir une action valide.');
         return;
     }
 
-    let actions_that_needs_value = ["removeClass", "addClass"];
+    let actions_that_needs_value = ["removeClass", "addClass", "addStyle"];
 
     if (actions_that_needs_value.includes(banAction)) {
         if(!banActionValue){

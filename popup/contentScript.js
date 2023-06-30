@@ -117,6 +117,10 @@ function hideElements() {
                         actionDone = true;
                     }
                     break;
+                case "addStyle":
+                    element.style.cssText += actionValue;
+                    actionDone = true;
+                    break;
 
                 default:
                     console.error(`Action non reconnue : ${action}`);

@@ -41,6 +41,7 @@ function showForm(){
     let banAction = document.querySelector('select[name="banAction"]');
     let modifyOptions = document.querySelector('.modify_options');
     let banActionValue = document.querySelector('#banActionValue');
+    let banActionValueLabel = document.querySelector('label[for="banActionValue"]');
 
     chrome.storage.local.get('selectedElement', function(data) {
         const elementInfo = data.selectedElement;
@@ -54,6 +55,11 @@ function showForm(){
         if (banAction.value === 'addClass' || banAction.value === 'removeClass') {
             modifyOptions.style.display = 'block';
             banActionValue.removeAttribute("disabled");
+            banActionValueLabel.textContent = "Nom de la classe";
+        } else if (banAction.value === 'addStyle') {
+            modifyOptions.style.display = 'block';
+            banActionValue.removeAttribute("disabled");
+            banActionValueLabel.textContent = "Style à ajouter";
         } else {
             modifyOptions.style.display = 'none';
             banActionValue.setAttribute("disabled", "true");
