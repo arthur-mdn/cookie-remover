@@ -135,6 +135,11 @@ function showHome() {
                 return historyUpdateQueue;
             }
 
+            function getOpeningElement(elementHTML) {
+                const closingTagIndex = elementHTML.indexOf('>');
+                return elementHTML.slice(0, closingTagIndex + 1);
+            }
+
             function handleAction(element, action, actionValue, brute) {
                 let actionDone = false;
                 switch (action) {
@@ -175,7 +180,11 @@ function showHome() {
                         console.error(`Action non reconnue : ${action}`);
                 }
 
-                return actionDone;
+                if (actionDone) {
+                    return { actionDone: true, elementHTML: getOpeningElement(element.outerHTML) };
+                } else {
+                    return { actionDone: false, elementHTML: null };
+                }
             }
 
             chrome.storage.local.get(
@@ -193,16 +202,17 @@ function showHome() {
                             selection: selection,
                             action: action,
                             actionValue: actionValue,
+                            elementHTML: null
                         };
 
                         switch (selector) {
                             case "id":
                                 const element = document.getElementById(selection);
                                 if (element) {
-                                    if (
-                                        handleAction(element, action, actionValue, result.brute)
-                                    ) {
-                                        addToHistory(actionInfo, result.brute).then(() => {
+                                    const actionResult = handleAction(element, action, actionValue, result.brute);
+                                    if (actionResult.actionDone) {
+                                        actionInfo.elementHTML = actionResult.elementHTML;
+                                        addToHistory(actionInfo, actionResult.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -214,10 +224,10 @@ function showHome() {
                             case "class":
                                 const elements = document.getElementsByClassName(selection);
                                 for (let i = 0; i < elements.length; i++) {
-                                    if (
-                                        handleAction(elements[i], action, actionValue, result.brute)
-                                    ) {
-                                        addToHistory(actionInfo, result.brute).then(() => {
+                                    const actionResult = handleAction(elements[i], action, actionValue, result.brute);
+                                    if (actionResult.actionDone) {
+                                        actionInfo.elementHTML = actionResult.elementHTML;
+                                        addToHistory(actionInfo, actionResult.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -229,15 +239,10 @@ function showHome() {
                             case "querySelector":
                                 const selectedElements = document.querySelectorAll(selection);
                                 for (let i = 0; i < selectedElements.length; i++) {
-                                    if (
-                                        handleAction(
-                                            selectedElements[i],
-                                            action,
-                                            actionValue,
-                                            result.brute
-                                        )
-                                    ) {
-                                        addToHistory(actionInfo, result.brute).then(() => {
+                                    const actionResult = handleAction(selectedElements[i], action, actionValue, result.brute);
+                                    if (actionResult.actionDone) {
+                                        actionInfo.elementHTML = actionResult.elementHTML;
+                                        addToHistory(actionInfo, actionResult.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();

@@ -75,6 +75,7 @@ function showHistory() {
                     }
 
                     let infosDiv = document.createElement('div');
+                    infosDiv.style.width = "100%";
 
                     let selectorDiv = document.createElement('div');
                     if(action.selector === "id"){
@@ -105,8 +106,28 @@ function showHistory() {
                     infosDiv.appendChild(urlDiv);
 
                     let elementDiv = document.createElement('div');
-                    elementDiv.textContent = `${action.elementHTML}`;
+                    let pre = document.createElement('pre');
+                    pre.classList.add("pre_text_wrap");
+                    let code = document.createElement('code');
+
+// Définir la classe du code à "html"
+                    code.className = "html";
+
+// Échapper le HTML
+                    code.textContent = action.elementHTML;
+
+// Ajouter le code à la balise <pre>
+                    pre.appendChild(code);
+
+// Ajouter <pre> à votre div
+                    elementDiv.appendChild(pre);
+
+// Ajouter la div à votre conteneur d'informations
                     infosDiv.appendChild(elementDiv);
+
+// Mettre en évidence le code avec Highlight.js
+                    hljs.highlightBlock(code);
+
 
                     iconAndInfoDiv.appendChild(iconDiv);
                     iconAndInfoDiv.appendChild(infosDiv);

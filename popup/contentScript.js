@@ -90,7 +90,20 @@ function hideElements() {
                         );
                     }
                     break;
-
+                case "destroy":
+                    if (
+                        element !== document.documentElement &&
+                        element !== document.body
+                    ) {
+                        element.remove();
+                        action = "destroy";
+                        actionDone = true;
+                    } else {
+                        console.log(
+                            "Tentative de cacher ou de détruire un élément <html> ou <body>"
+                        );
+                    }
+                    break;
                 case "addClass":
                     if (!element.classList.contains(actionValue)) {
                         element.classList.add(actionValue);

@@ -140,9 +140,14 @@ form{
     display: flex;
     align-items: center;
     gap: 10px;
+    width: 100%;
 }
 .iconAndInfoDiv i{
     font-size: 1.5rem;
+}
+
+.pre_text_wrap{
+    text-wrap: wrap!important;
 }
 
 #lastCount{
