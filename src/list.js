@@ -130,8 +130,13 @@ function showList(){
 
                 if(rule.sourceUrl){
                     let urlDiv = document.createElement('div');
-                    urlDiv.textContent = `${rule.sourceUrl}`;
+                    let urlHref = document.createElement("a");
+                    urlHref.href = rule.sourceUrl;
+                    urlHref.textContent = `${rule.sourceUrl}`;
+                    urlHref.target = "_blank";
+                    urlHref.rel = "noopener noreferrer";
 
+                    urlDiv.appendChild(urlHref);
                     infosDiv.appendChild(urlDiv);
                 }
 
