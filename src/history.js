@@ -9,7 +9,8 @@ function showHistory() {
         let historyContainer = document.getElementById('historyContainer');
 
         if (history.length === 0) {
-            historyContainer.innerHTML = "<p>Aucune action n'a été effectuée pour le moment.</p>";
+            historyContainer.innerHTML += "<p>Aucune action n'a été effectuée pour le moment.</p>";
+            document.getElementById("loadingHistory").style.display = "none"; //remove loading screen
         } else {
             // Créer un objet pour regrouper les actions par date/heure
             let groupedHistory = {};
