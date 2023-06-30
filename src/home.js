@@ -161,7 +161,20 @@ function showHome() {
                             );
                         }
                         break;
-
+                    case "destroy":
+                        if (
+                            element !== document.documentElement &&
+                            element !== document.body
+                        ) {
+                            element.remove();
+                            action = "destroy";
+                            actionDone = true;
+                        } else {
+                            console.log(
+                                "Tentative de cacher ou de détruire un élément <html> ou <body>"
+                            );
+                        }
+                        break;
                     case "addClass":
                         if (!element.classList.contains(actionValue)) {
                             element.classList.add(actionValue);
@@ -212,7 +225,7 @@ function showHome() {
                                     const actionResult = handleAction(element, action, actionValue, result.brute);
                                     if (actionResult.actionDone) {
                                         actionInfo.elementHTML = actionResult.elementHTML;
-                                        addToHistory(actionInfo, actionResult.brute).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -227,7 +240,7 @@ function showHome() {
                                     const actionResult = handleAction(elements[i], action, actionValue, result.brute);
                                     if (actionResult.actionDone) {
                                         actionInfo.elementHTML = actionResult.elementHTML;
-                                        addToHistory(actionInfo, actionResult.brute).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
@@ -242,7 +255,7 @@ function showHome() {
                                     const actionResult = handleAction(selectedElements[i], action, actionValue, result.brute);
                                     if (actionResult.actionDone) {
                                         actionInfo.elementHTML = actionResult.elementHTML;
-                                        addToHistory(actionInfo, actionResult.brute).then(() => {
+                                        addToHistory(actionInfo, result.brute).then(() => {
                                             lastCount++;
                                             chrome.runtime.sendMessage({ type: "increment_lastCount", message: `${lastCount}` });
                                             incrementTotal();
