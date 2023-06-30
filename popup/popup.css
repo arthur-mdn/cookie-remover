@@ -170,12 +170,12 @@ h3{
     color: #409ceb;
     font-size: 1.2rem;
 }
-#clearHistoryButton{
+#clearHistoryButton, #clearbannedFromAutoCleanWebsitesButton{
     padding: 5px 15px;
     cursor: pointer;
     border-radius: 3px;
 }
-#clearHistoryButton:hover{
+#clearHistoryButton:hover, #clearbannedFromAutoCleanWebsitesButton:hover{
     opacity: 0.7;
 }
 
