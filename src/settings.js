@@ -192,19 +192,21 @@ function showSettings(){
         // Create the 'clear history' button
         let clearbannedFromAutoCleanWebsitesButton = document.createElement("button");
         clearbannedFromAutoCleanWebsitesButton.id = "clearbannedFromAutoCleanWebsitesButton";
-        clearbannedFromAutoCleanWebsitesButton.innerText = "Supprimer les pages bannies";
+        clearbannedFromAutoCleanWebsitesButton.innerText = "Supprimer les pages bannies du nettoyage automatique";
 
         // If history is empty, disable the button
         if (bannedFromAutoCleanWebsites.length === 0) {
-            clearbannedFromAutoCleanWebsitesButton.disabled = true;
+            clearbannedFromAutoCleanWebsitesButton.setAttribute("disabled", "true");
         }
+        console.log(bannedFromAutoCleanWebsites.length)
 
         // Add event listener to clear the history when the button is clicked
         clearbannedFromAutoCleanWebsitesButton.addEventListener('click', function() {
-            let confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer les pages bannies ? Cette action est irréversible.");
+            let confirmed = window.confirm("Êtes-vous sûr de vouloir supprimer les pages bannies du nettoyage automatique ? Cette action est irréversible.");
             if(confirmed) {
                 chrome.storage.local.set({"bannedFromAutoCleanWebsites": []}, function() {
-                    console.log('Pages bannies effacé');
+                    console.log('Pages bannies du nettoyage automatique effacé');
+                    window.location.href = "../popup/popup.html?tab=settings";
                 });
             }
         });
@@ -232,7 +234,7 @@ function showSettings(){
 
         // If history is empty, disable the button
         if (history.length === 0) {
-            clearHistoryButton.disabled = true;
+            clearHistoryButton.setAttribute("disabled", "true");
         }
 
         // Add event listener to clear the history when the button is clicked
@@ -241,6 +243,7 @@ function showSettings(){
             if(confirmed) {
                 chrome.storage.local.set({"history": []}, function() {
                     console.log('Historique effacé');
+                    window.location.href = "../popup/popup.html?tab=settings";
                 });
             }
         });
