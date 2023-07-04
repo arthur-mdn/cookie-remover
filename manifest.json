@@ -2,7 +2,7 @@
   "name": "Cookie Remover",
   "version": "0.0.0.1",
   "manifest_version": 3,
-  "permissions": ["scripting", "activeTab", "tabs", "storage"],
+  "permissions": ["scripting", "activeTab", "tabs", "storage", "unlimitedStorage"],
   "background": {
     "service_worker": "popup/background.js"
   },
