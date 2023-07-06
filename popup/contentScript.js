@@ -226,30 +226,26 @@ function launchBan() {
         const currentPageUrl = window.location.href;
         const currentDomain = getHostName(currentPageUrl); // get the domain name
         if (!bannedFromAutoCleanWebsites.includes(currentDomain)) { // check if the domain name is not in the banned pages
+            handleBanAll(banlist);
             // Parcourir chaque règle de la banlist
             banlist.forEach((rule) => {
                 const { selector, selection } = rule; // Récupérer le sélecteur et la sélection de chaque règle
 
-                let intervalId = setInterval(function() {
+                let observer = new MutationObserver((mutations) => {
                     handleBanAll(banlist);
+                });
 
-                    // Verifier si l'élément est caché, alors arrêter la répétition
-                    let element;
-                    switch (selector) {
-                        case 'id':
-                            element = document.getElementById(selection);
-                            break;
-                        case 'class':
-                            element = document.getElementsByClassName(selection)[0];
-                            break;
-                        case 'querySelector':
-                            element = document.querySelector(selection);
-                            break;
+                // Start observing the document
+                observer.observe(document, { childList: true, subtree: true });
+
+                // Handle tab visibility changes
+                document.addEventListener("visibilitychange", function() {
+                    if (document.hidden){
+                        observer.disconnect();
+                    } else {
+                        observer.observe(document, { childList: true, subtree: true });
                     }
-                    if (!element || element.style.display === 'none') {
-                        clearInterval(intervalId);
-                    }
-                }, 1000);  // Répéter chaque seconde
+                });
             });
         }
     });
