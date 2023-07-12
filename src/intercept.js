@@ -36,7 +36,7 @@ function handleSubmit() {
 
         storage.local.get(["banlist"], function(result) {
             let banlist = result.banlist || [];
-            let alreadyExist = banlist.some(rule => rule.selector === banSelector && rule.selection === banSelection && rule.action === banAction);
+            let alreadyExist = banlist.some(rule => rule.selector === banSelector && rule.selection === banSelection && rule.action === banAction && rule.actionValue === banActionValue);
             if (!alreadyExist) {
                 if(actions_that_needs_value.includes(banAction)){
                     // console.error(banActionValue);

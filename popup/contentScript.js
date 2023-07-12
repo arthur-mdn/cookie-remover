@@ -141,14 +141,14 @@ function hideElements() {
                     styleKeys.forEach(key => {
                         if (element.style[key] !== styleObject[key]) {
                             styleNeedsUpdate = true;
+                            element.style[key] = styleObject[key]; // Set or update the style
                         }
                     });
-
                     if (styleNeedsUpdate) {
-                        element.style.cssText += actionValue;
                         actionDone = true;
                     }
                     break;
+
 
                 default:
                     console.error(`Action non reconnue : ${action}`);

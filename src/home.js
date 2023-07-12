@@ -134,6 +134,21 @@ function showHome() {
 
                 return historyUpdateQueue;
             }
+            function styleStringToObject(styleString) {
+                let styleObject = {};
+
+                // Split the style string into individual style rules
+                let styleRules = styleString.split(';');
+
+                styleRules.forEach(rule => {
+                    let [property, value] = rule.split(':');
+
+                    // Trim whitespace and add the rule to the style object
+                    styleObject[property.trim()] = value.trim();
+                });
+
+                return styleObject;
+            }
 
             function getOpeningElement(elementHTML) {
                 const closingTagIndex = elementHTML.indexOf('>');
@@ -190,8 +205,19 @@ function showHome() {
                         break;
 
                     case "addStyle":
-                        element.style.cssText += actionValue;
-                        actionDone = true;
+                        let styleObject = styleStringToObject(actionValue);
+                        let styleKeys = Object.keys(styleObject);
+
+                        let styleNeedsUpdate = false;
+                        styleKeys.forEach(key => {
+                            if (element.style[key] !== styleObject[key]) {
+                                styleNeedsUpdate = true;
+                                element.style[key] = styleObject[key]; // Set or update the style
+                            }
+                        });
+                        if (styleNeedsUpdate) {
+                            actionDone = true;
+                        }
                         break;
 
                     default:
