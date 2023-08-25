@@ -4,7 +4,7 @@
 
 **Développeur :** Arthur Mondon
 
-**Juin 2023**
+**Août 2023**
 
 Ce plugin est utilisé pour exécuter des actions sur une page web.
 Son premier atout est de pouvoir "cacher" les bannières / popup incessants des cookies sur divers sites, sans les accepter ! Pour pouvoir profiter d'une expérience sans interruption et sans traçages.
@@ -24,3 +24,8 @@ Un système de sélection d'élément au clic avec indicateur visuel de la séle
 - Cliquer sur "Charger l’extension décompressée".
 - Sélectionner le dossier racine de l'extension téléchargée décompressée. 
 - Enjoy !
+
+## Avertissements
+
+- Votre navigateur peut vous indiquer que cette extension accède aux données du site Web. Ceci est généré automatiquement, car le plugin analyse le code source HTML pour masquer intelligemment les bannières de notification. Il ne surveille ni n'enregistre votre historique de navigation ou vos informations personnelles. 
+- L'historique des actions est stocké localement et n'est jamais transmis en dehors de votre appareil.

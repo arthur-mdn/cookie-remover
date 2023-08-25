@@ -182,7 +182,7 @@ function showSettings(){
 
     chrome.storage.local.get("bannedFromAutoCleanWebsites", function(result) {
         let bannedFromAutoCleanWebsites = result.bannedFromAutoCleanWebsites || [];
-        console.log(bannedFromAutoCleanWebsites);
+        // console.log(bannedFromAutoCleanWebsites);
 
         // Create a container div for the 'clear history' button
         let bannedFromAutoCleanWebsitesContainer = document.createElement("div");
@@ -198,7 +198,7 @@ function showSettings(){
         if (bannedFromAutoCleanWebsites.length === 0) {
             clearbannedFromAutoCleanWebsitesButton.setAttribute("disabled", "true");
         }
-        console.log(bannedFromAutoCleanWebsites.length)
+        // console.log(bannedFromAutoCleanWebsites.length)
 
         // Add event listener to clear the history when the button is clicked
         clearbannedFromAutoCleanWebsitesButton.addEventListener('click', function() {
@@ -269,4 +269,138 @@ function showSettings(){
 
         settingsContainer.appendChild(countDiv);
     });
+
+
+
+
+
+    chrome.storage.local.get("totalCount", function(result) {
+        let exportAndImportSettingsContainer = document.createElement("div");
+        exportAndImportSettingsContainer.style.display = "flex";
+        exportAndImportSettingsContainer.style.justifyContent = "center";
+        exportAndImportSettingsContainer.style.gap = "5px";
+
+        let exportSettingsContainer = document.createElement("div");
+
+        let exportSettingsButton = document.createElement("button");
+        exportSettingsButton.id = "exportSettingsButton";
+        exportSettingsButton.innerHTML = "<i class=\"fa fa-upload\" aria-hidden=\"true\"></i>\n Exporter les paramètres";
+
+        exportSettingsButton.addEventListener('click', function() {
+            chrome.storage.local.get([
+                'showDefault',
+                'brute',
+                'darkmode',
+                'cleanAuto',
+                'bannedFromAutoCleanWebsites',
+                'banlist'
+            ], function(settings) {
+                // console.log(settings);
+                let settingsJSON = JSON.stringify(settings);
+                let blob = new Blob([settingsJSON], {type: 'application/json'});
+                let url = URL.createObjectURL(blob);
+
+                // Créer un lien temporaire pour le téléchargement
+                let downloadLink = document.createElement("a");
+                downloadLink.href = url;
+                downloadLink.download = 'settings.json';
+
+                // Télécharger le fichier
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+
+                // Libérer l'URL
+                URL.revokeObjectURL(url);
+            });
+        });
+
+
+        exportSettingsContainer.appendChild(exportSettingsButton);
+        exportAndImportSettingsContainer.appendChild(exportSettingsContainer);
+
+
+
+
+         let importSettingsContainer = document.createElement("div");
+
+        let importSettingsInput = document.createElement("input");
+        importSettingsInput.type = "file";
+        importSettingsInput.id = "exportSettingsButton";
+        importSettingsInput.style.display = "none";
+        importSettingsInput.innerHTML = "Exporter les paramètres";
+
+        let importSettingsButton = document.createElement("button");
+        importSettingsButton.id = "importSettingsButton";
+        importSettingsButton.innerHTML = "<i class=\"fa fa-download\" aria-hidden=\"true\"></i>\n Importer les paramètres";
+        importSettingsButton.addEventListener("click", function(){
+            importSettingsInput.click();
+        });
+
+        function saveSettings(settings) {
+            return new Promise((resolve, reject) => {
+                chrome.storage.local.set(settings, () => {
+                    if (chrome.runtime.lastError) {
+                        return reject(chrome.runtime.lastError);
+                    }
+                    resolve();
+                });
+            });
+        }
+        async function importSettings(settings) {
+            let {brute, cleanAuto, darkmode, banlist, bannedFromAutoCleanWebsites} = settings;
+
+            if (typeof brute !== 'boolean' || typeof cleanAuto !== 'boolean' || typeof darkmode !== 'boolean') {
+                console.error("Les paramètres 'brute', 'cleanAuto' et 'darkmode' doivent être des booléens.");
+                return;
+            }
+
+            if (!Array.isArray(banlist) || !Array.isArray(bannedFromAutoCleanWebsites)) {
+                console.error("Les paramètres 'banlist' et 'bannedFromAutoCleanWebsites' doivent être des listes.");
+                return;
+            }
+
+            console.log("Paramètres valides. Ils vont être importés:", settings);
+            try {
+                await saveSettings(settings);
+                alert('Paramètres importés avec succès !');
+                window.location.href = "../popup/popup.html?tab=settings";
+
+            } catch (error) {
+                alert("Erreur lors de l'importation des paramètres.")
+                console.error("Erreur lors de l'importation des paramètres:", error);
+            }
+        }
+
+
+
+        importSettingsInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    try {
+                        const json = JSON.parse(e.target.result);
+                        importSettings(json);
+                    } catch (error) {
+                        console.error("Erreur lors de la lecture du fichier JSON:", error);
+                    }
+                };
+
+                reader.readAsText(file);
+            }
+        });
+
+
+        importSettingsContainer.appendChild(importSettingsButton);
+        importSettingsContainer.appendChild(importSettingsInput);
+
+        exportAndImportSettingsContainer.appendChild(importSettingsContainer);
+        settingsContainer.appendChild(exportAndImportSettingsContainer);
+    });
+
+
+
 }
