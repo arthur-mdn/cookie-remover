@@ -137,16 +137,19 @@ function showHome() {
             function styleStringToObject(styleString) {
                 let styleObject = {};
 
-                // Split the style string into individual style rules
                 let styleRules = styleString.split(';');
 
                 styleRules.forEach(rule => {
-                    let [property, value] = rule.split(':');
+                    if (rule !== "" && rule !== " ") {
+                        let [property, value] = rule.split(':');
+                        if (value && value.trim() !== "") {
+                            property = property.trim();
+                            value = value.trim();
 
-                    // Trim whitespace and add the rule to the style object
-                    styleObject[property.trim()] = value.trim();
+                            styleObject[property] = value;
+                        }
+                    }
                 });
-
                 return styleObject;
             }
 
@@ -207,17 +210,15 @@ function showHome() {
                     case "addStyle":
                         let styleObject = styleStringToObject(actionValue);
                         let styleKeys = Object.keys(styleObject);
-
-                        let styleNeedsUpdate = false;
                         styleKeys.forEach(key => {
-                            if (element.style[key] !== styleObject[key]) {
-                                styleNeedsUpdate = true;
-                                element.style[key] = styleObject[key]; // Set or update the style
+                            if (styleObject[key].includes("!important")) {
+                                let valueWithoutImportant = styleObject[key].replace('!important', '').trim();
+                                element.style.setProperty(key, valueWithoutImportant, "important");
+                            } else {
+                                element.style[key] = styleObject[key];
                             }
                         });
-                        if (styleNeedsUpdate) {
-                            actionDone = true;
-                        }
+                        actionDone = true;
                         break;
 
                     default:
