@@ -42,28 +42,28 @@
   {
     "action": "hide",
     "date": "2023-06-28T04:43:02.048Z",
-    "default": false,
+    "default": true,
     "selection": "CybotCookiebotDialog",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-06-28T04:45:01.028Z",
-    "default": false,
+    "default": true,
     "selection": "CookieBanner",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-06-28T12:40:06.414Z",
-    "default": false,
+    "default": true,
     "selection": "dbanp",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-06-28T12:40:22.335Z",
-    "default": false,
+    "default": true,
     "selection": "PaywallBarWrapper-iRCypJ",
     "selector": "class"
   },
@@ -71,7 +71,7 @@
     "action": "removeClass",
     "actionValue": "article__content--restricted",
     "date": "2023-06-29T09:35:50.024Z",
-    "default": false,
+    "default": true,
     "selection": "article__wrapper ",
     "selector": "class"
   },
@@ -79,14 +79,14 @@
     "action": "removeClass",
     "actionValue": "article__content--restricted",
     "date": "2023-06-29T09:36:25.302Z",
-    "default": false,
+    "default": true,
     "selection": "section",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-06-30T12:44:46.750Z",
-    "default": false,
+    "default": true,
     "selection": "ez_banner",
     "selector": "class"
   },
@@ -94,7 +94,7 @@
     "action": "addStyle",
     "actionValue": "display:none",
     "date": "2023-06-30T13:38:09.597Z",
-    "default": false,
+    "default": true,
     "selection": "adngin-main_leaderboard-0",
     "selector": "id"
   },
@@ -102,105 +102,105 @@
     "action": "addStyle",
     "actionValue": "overflow:auto",
     "date": "2023-06-30T13:56:22.213Z",
-    "default": false,
+    "default": true,
     "selection": "body",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-04T12:03:21.111Z",
-    "default": false,
+    "default": true,
     "selection": "wp-optin-dialog-container",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-04T13:54:39.693Z",
-    "default": false,
+    "default": true,
     "selection": "loggedout",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-04T14:11:44.530Z",
-    "default": false,
+    "default": true,
     "selection": "cookie-law-info-again",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-04T14:11:53.380Z",
-    "default": false,
+    "default": true,
     "selection": "cookie-law-info-bar",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-04T14:33:12.324Z",
-    "default": false,
+    "default": true,
     "selection": "cmplz-cookiebanner-container",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-05T08:42:50.258Z",
-    "default": false,
+    "default": true,
     "selection": "pushMSTGContent",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-06T12:14:16.098Z",
-    "default": false,
+    "default": true,
     "selection": "cmpwrapper",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-06T18:56:46.937Z",
-    "default": false,
+    "default": true,
     "selection": "tampa-campaign",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-06T18:57:02.441Z",
-    "default": false,
+    "default": true,
     "selection": "onesignal-slidedown-dialog",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-11T12:03:16.379Z",
-    "default": false,
+    "default": true,
     "selection": "framer-sn3lwk",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-11T12:23:21.789Z",
-    "default": false,
+    "default": true,
     "selection": "shopify-pc__banner",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-11T12:23:48.406Z",
-    "default": false,
+    "default": true,
     "selection": "pushowl-optin",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-11T12:25:27.398Z",
-    "default": false,
+    "default": true,
     "selection": "hw-cc-notice-box__wrapper",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-12T07:15:09.152Z",
-    "default": false,
+    "default": true,
     "selection": "cdk-overlay-backdrop",
     "selector": "class"
   },
@@ -208,189 +208,189 @@
     "action": "removeClass",
     "actionValue": "cdk-global-scrollblock",
     "date": "2023-07-12T07:20:50.834Z",
-    "default": false,
+    "default": true,
     "selection": "body",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-12T08:31:25.876Z",
-    "default": false,
+    "default": true,
     "selection": "ez-promo-popup",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-12T09:33:14.027Z",
-    "default": false,
+    "default": true,
     "selection": "ideocookie-widget",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-12T11:51:40.412Z",
-    "default": false,
+    "default": true,
     "selection": "consent_blackbar",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-12T12:43:40.868Z",
-    "default": false,
+    "default": true,
     "selection": "unic-modal",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-17T15:28:31.590Z",
-    "default": false,
+    "default": true,
     "selection": "elements-toast-banner__wrapper",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-20T08:08:36.337Z",
-    "default": false,
+    "default": true,
     "selection": "es-consent",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-20T09:14:55.075Z",
-    "default": false,
+    "default": true,
     "selection": "*[data-name*=\"gdpr\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-20T09:15:37.348Z",
-    "default": false,
+    "default": true,
     "selection": "ml-dialog",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-24T14:42:35.980Z",
-    "default": false,
+    "default": true,
     "selection": "*[class*=\"UseCookie\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-24T15:51:22.079Z",
-    "default": false,
+    "default": true,
     "selection": "gdpr-consent-tool-wrapper",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-07-25T12:55:13.222Z",
-    "default": false,
+    "default": true,
     "selection": "*[id*=\"axeptio\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-27T20:44:13.168Z",
-    "default": false,
+    "default": true,
     "selection": "*[class*=\"trust\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-28T12:24:48.423Z",
-    "default": false,
+    "default": true,
     "selection": "*[id*=\"cookies\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-07-28T12:24:58.622Z",
-    "default": false,
+    "default": true,
     "selection": "modal-backdrop",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-28T12:26:00.460Z",
-    "default": false,
+    "default": true,
     "selection": "modal-special",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-31T13:54:21.119Z",
-    "default": false,
+    "default": true,
     "selection": "abg",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-07-31T13:54:49.926Z",
-    "default": false,
+    "default": true,
     "selection": "zz",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-02T14:11:08.817Z",
-    "default": false,
+    "default": true,
     "selection": "acj",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T08:46:44.525Z",
-    "default": false,
+    "default": true,
     "selection": "ot-sdk-row",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T13:32:25.019Z",
-    "default": false,
+    "default": true,
     "selection": "leadinModal-overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T13:36:09.057Z",
-    "default": false,
+    "default": true,
     "selection": "mailmunch-inner-overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T13:37:07.400Z",
-    "default": false,
+    "default": true,
     "selection": "sn-v-cell",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T13:37:15.238Z",
-    "default": false,
+    "default": true,
     "selection": "sn-v-table",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-03T13:37:24.282Z",
-    "default": false,
+    "default": true,
     "selection": "snigel-cmp-framework",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-05T12:04:15.746Z",
-    "default": false,
+    "default": true,
     "selection": "ch2-dialog",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-05T12:10:58.964Z",
-    "default": false,
+    "default": true,
     "selection": "kPCOFm0ZqgxjclJ5VcoBEA==",
     "selector": "class"
   },
@@ -398,105 +398,105 @@
     "action": "addStyle",
     "actionValue": "overflow-y: auto",
     "date": "2023-08-08T15:54:16.150Z",
-    "default": false,
+    "default": true,
     "selection": "main-wrapper",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-08-16T11:54:19.790Z",
-    "default": false,
+    "default": true,
     "selection": "div.opened > :nth-child(1)",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-08-16T12:23:37.633Z",
-    "default": false,
+    "default": true,
     "selection": "cmpcontainer",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-16T14:42:48.621Z",
-    "default": false,
+    "default": true,
     "selection": "cmp-banner",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-16T14:44:52.311Z",
-    "default": false,
+    "default": true,
     "selection": "[id*='sp_message']",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-08-24T07:09:07.497Z",
-    "default": false,
+    "default": true,
     "selection": "cookie-alert",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-08-24T07:09:16.083Z",
-    "default": false,
+    "default": true,
     "selection": "hs-eu-cookie-confirmation",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-08-24T07:11:15.446Z",
-    "default": false,
+    "default": true,
     "selection": "mc-modal-overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-24T12:46:07.497Z",
-    "default": false,
+    "default": true,
     "selection": "ccc-overlay",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-08-24T12:46:15.378Z",
-    "default": false,
+    "default": true,
     "selection": "ccc-notify__top",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-24T12:49:14.217Z",
-    "default": false,
+    "default": true,
     "selection": "modal-box__overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-24T12:50:39.275Z",
-    "default": false,
+    "default": true,
     "selection": "modal-box",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-28T15:49:52.511Z",
-    "default": false,
+    "default": true,
     "selection": "fpw_backdrop",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-29T14:57:02.327Z",
-    "default": false,
+    "default": true,
     "selection": "osano-cm-dialog",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-30T12:51:02.420Z",
-    "default": false,
+    "default": true,
     "selection": "div:has(a[href*='admiral.com'])",
     "selector": "querySelector"
   },
@@ -504,14 +504,14 @@
     "action": "addStyle",
     "actionValue": "overflow-y:auto",
     "date": "2023-08-30T12:51:33.446Z",
-    "default": false,
+    "default": true,
     "selection": "html",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-08-30T12:52:56.614Z",
-    "default": false,
+    "default": true,
     "selection": "ad-zone",
     "selector": "class"
   },
@@ -519,84 +519,84 @@
     "action": "addStyle",
     "actionValue": "display:none!important",
     "date": "2023-08-30T12:53:24.756Z",
-    "default": false,
+    "default": true,
     "selection": "ad-zone",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-30T13:58:30.921Z",
-    "default": false,
+    "default": true,
     "selection": "adthrive-ad",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-31T10:57:02.543Z",
-    "default": false,
+    "default": true,
     "selection": "tc_priv_CustomOverlay",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-08-31T11:59:16.105Z",
-    "default": false,
+    "default": true,
     "selection": "sp-overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-31T12:29:45.538Z",
-    "default": false,
+    "default": true,
     "selection": "percent-read",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-08-31T12:34:40.291Z",
-    "default": false,
+    "default": true,
     "selection": "no-touch",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-12T16:39:22.562Z",
-    "default": false,
+    "default": true,
     "selection": "div[class*='modal']:has(a[href*='privacy'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-13T14:11:03.831Z",
-    "default": false,
+    "default": true,
     "selection": "w3-clear",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-13T15:09:08.594Z",
-    "default": false,
+    "default": true,
     "selection": "mailmunch-popover-container",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-13T15:09:15.403Z",
-    "default": false,
+    "default": true,
     "selection": "mailmunch-popover",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-13T15:09:23.985Z",
-    "default": false,
+    "default": true,
     "selection": "mailmunch-overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-14T19:46:19.117Z",
-    "default": false,
+    "default": true,
     "selection": "div[id*='poool']",
     "selector": "querySelector"
   },
@@ -604,7 +604,7 @@
     "action": "addStyle",
     "actionValue": "filter:none!important",
     "date": "2023-09-14T19:59:42.666Z",
-    "default": false,
+    "default": true,
     "selection": "wrapper",
     "selector": "querySelector"
   },
@@ -612,7 +612,7 @@
     "action": "addStyle",
     "actionValue": "filter:none!important",
     "date": "2023-09-14T20:01:13.714Z",
-    "default": false,
+    "default": true,
     "selection": "body div.page div.wrapper",
     "selector": "querySelector"
   },
@@ -620,357 +620,357 @@
     "action": "addStyle",
     "actionValue": "-webkit-filter: none!important;",
     "date": "2023-09-14T20:04:29.227Z",
-    "default": false,
+    "default": true,
     "selection": "body div.page div.wrapper",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-18T12:02:12.524Z",
-    "default": false,
+    "default": true,
     "selection": "hw-cc-modal__wrapper",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-19T09:21:05.302Z",
-    "default": false,
+    "default": true,
     "selection": "cli-modal-backdrop",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-19T09:21:14.954Z",
-    "default": false,
+    "default": true,
     "selection": "cli-modal-backdrop",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-19T09:24:52.370Z",
-    "default": false,
+    "default": true,
     "selection": "*[class*='ppms']",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-19T09:32:55.563Z",
-    "default": false,
+    "default": true,
     "selection": "elementor-popup-modal-10420",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-09-21T15:31:37.302Z",
-    "default": false,
+    "default": true,
     "selection": ".popover-portal:has(div[data-t='cookiesMessage'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-21T15:35:49.403Z",
-    "default": false,
+    "default": true,
     "selection": "tc-privacy-overlay-banner",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-09-21T15:36:46.267Z",
-    "default": false,
+    "default": true,
     "selection": "exponea-cookie-compliance",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-09-21T15:56:22.515Z",
-    "default": false,
+    "default": true,
     "selection": "cc-nb-main-container",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-27T07:03:40.703Z",
-    "default": false,
+    "default": true,
     "selection": "evidon-banner",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-27T07:03:46.561Z",
-    "default": false,
+    "default": true,
     "selection": "evidon-background",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-27T13:12:45.825Z",
-    "default": false,
+    "default": true,
     "selection": "div[class*='chakra-modal__']",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-28T12:23:00.314Z",
-    "default": false,
+    "default": true,
     "selection": "privacy-overlay-banner",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-09-28T13:31:26.215Z",
-    "default": false,
+    "default": true,
     "selection": "popupWARecueilConsentement",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-28T13:31:35.030Z",
-    "default": false,
+    "default": true,
     "selection": "ncp-popup",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-28T14:50:46.244Z",
-    "default": false,
+    "default": true,
     "selection": "div.n:has(a[href*='privacy'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-28T15:08:50.465Z",
-    "default": false,
+    "default": true,
     "selection": "notify-airship",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-29T07:44:12.244Z",
-    "default": false,
+    "default": true,
     "selection": "cl-consent",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-09-29T12:06:30.883Z",
-    "default": false,
+    "default": true,
     "selection": "cmpbox",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-29T12:06:37.557Z",
-    "default": false,
+    "default": true,
     "selection": "cmpboxBG",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-09-29T12:08:34.050Z",
-    "default": false,
+    "default": true,
     "selection": "div[role='dialog']:has(a[href*='cookie'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-09-29T12:10:06.149Z",
-    "default": false,
+    "default": true,
     "selection": "div[aria-live='polite']:has(a[href*='cookie'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2023-10-03T12:37:01.870Z",
-    "default": false,
+    "default": true,
     "selection": "cc-banner",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-10-10T09:51:09.638Z",
-    "default": false,
+    "default": true,
     "selection": "blocked-video__overlay",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-10-11T09:06:18.416Z",
-    "default": false,
+    "default": true,
     "selection": "pea_cook_wrapper",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-10-11T09:41:26.460Z",
-    "default": false,
+    "default": true,
     "selection": "popin-cookie",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-10-12T20:12:20.404Z",
-    "default": false,
+    "default": true,
     "selection": "left-sidebar",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-10-13T07:10:31.362Z",
-    "default": false,
+    "default": true,
     "selection": "Card-sc-1s2p2gv-0",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-10-13T12:12:09.252Z",
-    "default": false,
+    "default": true,
     "selection": "popin1",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-10-13T12:12:14.434Z",
-    "default": false,
+    "default": true,
     "selection": "cachePage",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-10-26T14:21:43.801Z",
-    "default": false,
+    "default": true,
     "selection": "amp-active",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2023-10-27T10:23:00.319Z",
-    "default": false,
+    "default": true,
     "selection": "usercentrics-root",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-10-27T10:23:13.159Z",
-    "default": false,
+    "default": true,
     "selection": "uc-overflow-style",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-11-06T18:51:44.596Z",
-    "default": false,
+    "default": true,
     "selection": "fast-cmp-root",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-11-14T09:53:46.203Z",
-    "default": false,
+    "default": true,
     "selection": "evidon_barrier_wrap",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-11-22T17:38:49.626Z",
-    "default": false,
+    "default": true,
     "selection": "cookieBarRGPDOverlay",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2023-11-22T17:39:01.747Z",
-    "default": false,
+    "default": true,
     "selection": "cookieBarRGPDPop",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-01-17T14:26:14.392Z",
-    "default": false,
+    "default": true,
     "selection": "MuiDialog-container",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2024-01-17T14:26:22.920Z",
-    "default": false,
+    "default": true,
     "selection": "MuiBackdrop-root",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2024-01-17T14:26:43.939Z",
-    "default": false,
+    "default": true,
     "selection": "MuiDialog-root",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2024-01-17T14:28:27.195Z",
-    "default": false,
+    "default": true,
     "selection": "*[data-automation=\"OnboardingModal_Custom_Scrim\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-01-24T08:29:52.205Z",
-    "default": false,
+    "default": true,
     "selection": "sdgdpr_modal_wrapper",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-01-24T08:29:57.966Z",
-    "default": false,
+    "default": true,
     "selection": "sdgdpr_modal",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-02-12T10:50:15.772Z",
-    "default": false,
+    "default": true,
     "selection": "fides-banner-inner",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-02-12T11:11:38.079Z",
-    "default": false,
+    "default": true,
     "selection": "div:has(> div > div > p > a[href='/privacy-policy'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-07-14T12:53:48.522Z",
-    "default": false,
+    "default": true,
     "selection": "cookie-banner",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2024-07-17T07:40:47.254Z",
-    "default": false,
+    "default": true,
     "selection": "popover-billboard--menuopenupwards",
     "selector": "class"
   },
   {
     "action": "hide",
     "date": "2024-07-17T08:23:00.240Z",
-    "default": false,
+    "default": true,
     "selection": ".border-accent-cabbage-default:has(button)",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-07-17T08:27:26.702Z",
-    "default": false,
+    "default": true,
     "selection": ".typo-footnote:has(a[href*='cookie'])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-07-19T09:11:53.815Z",
-    "default": false,
+    "default": true,
     "selection": "ul:has(li):has(div):has(span):has(a[href*='/privacy'])",
     "selector": "querySelector"
   }
