@@ -125,10 +125,21 @@ function showForm(){
 
     function selectElement() {
         let previouslySelectedElement;
+        let darkOverlay = document.createElement('div');
+        darkOverlay.id = 'darkOverlay';
+        darkOverlay.style.position = 'fixed';
+        darkOverlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        darkOverlay.style.top = '0';
+        darkOverlay.style.left = '0';
+        darkOverlay.style.bottom = '0';
+        darkOverlay.style.right = '0';
+        darkOverlay.style.pointerEvents = 'none';
+        darkOverlay.style.zIndex = '99999999999999999999999998';
+
         let overlay = document.createElement('div');
         overlay.id = 'overlay';
         overlay.style.position = 'fixed';
-        overlay.style.backgroundColor = 'rgba(0, 255, 0, 0.5)';
+        overlay.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
         overlay.style.pointerEvents = 'none';
         overlay.style.zIndex = '99999999999999999999999999';
 
@@ -142,11 +153,23 @@ function showForm(){
             overlay.style.left = `${rect.left}px`;
             overlay.style.width = `${rect.width}px`;
             overlay.style.height = `${rect.height}px`;
+            document.body.appendChild(darkOverlay);
             document.body.appendChild(overlay);
+
+            darkOverlay.style.clipPath = `polygon(
+                0% 0%, 100% 0%, 100% 100%, 0% 100%, 
+                0% ${rect.top}px, 
+                ${rect.left}px ${rect.top}px, 
+                ${rect.left}px ${rect.bottom}px, 
+                ${rect.right}px ${rect.bottom}px, 
+                ${rect.right}px ${rect.top}px, 
+                0% ${rect.top}px
+            )`;
         }
 
         function removeSelectionIndicator() {
             if (overlay.parentNode) {
+                overlay.parentNode.removeChild(darkOverlay);
                 overlay.parentNode.removeChild(overlay);
             }
         }
@@ -229,6 +252,7 @@ function showForm(){
         let overlay = document.getElementById('overlay');
         if (overlay && overlay.parentNode) {
             overlay.parentNode.removeChild(overlay);
+            overlay.parentNode.removeChild(document.getElementById('darkOverlay'));
         }
     }
 }
