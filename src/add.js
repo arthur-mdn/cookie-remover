@@ -88,14 +88,13 @@ function showForm(){
         if (cancelSelectButton) {
             cancelSelectButton.addEventListener('click', function(event){
                 chrome.storage.local.remove('selectedElement', function() {
-                    // Faire quelque chose après la suppression.
-                    window.location.href = "../popup/popup.html?tab=add";
+                    // raffraichir la page de l'extension sans utiliser window.location.reload()
+                    setAvailableTabs();
+                    loadContent.call(document.getElementById("add"));
                 });
             });
         }
     }
-
-
 
 
     function startElementSelection() {
@@ -117,7 +116,8 @@ function showForm(){
         isSelecting = false;
         document.getElementById("selectButton").innerHTML = "<i class=\"fa fa-hand-pointer-o\" aria-hidden=\"true\"></i><span>Sélectionner</span>";
         executeScriptInCurrentTab(cancelElementSelection, {});
-        window.location.href = "../popup/popup.html?tab=add";
+        setAvailableTabs();
+        loadContent.call(document.getElementById("add"));
     }
 
     addSelectButtonListener();

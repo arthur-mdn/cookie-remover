@@ -61,7 +61,8 @@ function handleSubmit() {
                 }
                 // console.log(banlist);
                 chrome.storage.local.set({ banlist }, function() {
-                    window.location.href = "../popup/popup.html?tab=list";
+                    setAvailableTabs();
+                    loadContent.call(document.getElementById("list"));
                 });
             } else {
                 alert('Existe déjà');

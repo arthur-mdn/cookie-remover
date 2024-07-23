@@ -328,11 +328,11 @@ function showHome() {
             } else if (request.message === "1") {
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> 1 action effectuée.";
                 document.getElementById("lastCount").classList.add("lastCountEffective");
-                document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
+                document.getElementById("lastCount").onclick = function(){loadContent.call(document.getElementById("history"));};
             } else{
                 document.getElementById("lastCount").innerHTML = "<i class=\"fa fa-check\" aria-hidden=\"true\"></i> " + request.message +" actions effectuées.";
                 document.getElementById("lastCount").classList.add("lastCountEffective");
-                document.getElementById("lastCount").onclick = function(){window.location.href = "../popup/popup.html?tab=history";};
+                document.getElementById("lastCount").onclick = function(){loadContent.call(document.getElementById("history"));};
             }
         }
     });

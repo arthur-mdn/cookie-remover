@@ -206,7 +206,7 @@ function showSettings(){
             if(confirmed) {
                 chrome.storage.local.set({"bannedFromAutoCleanWebsites": []}, function() {
                     console.log('Pages bannies du nettoyage automatique effacé');
-                    window.location.href = "../popup/popup.html?tab=settings";
+                    loadContent.call(document.getElementById("settings"));
                 });
             }
         });
@@ -243,7 +243,7 @@ function showSettings(){
             if(confirmed) {
                 chrome.storage.local.set({"history": []}, function() {
                     console.log('Historique effacé');
-                    window.location.href = "../popup/popup.html?tab=settings";
+                    loadContent.call(document.getElementById("settings"));
                 });
             }
         });
@@ -295,6 +295,14 @@ function showSettings(){
                 'bannedFromAutoCleanWebsites',
                 'banlist'
             ], function(settings) {
+
+                settings.showDefault = settings.showDefault !== undefined ? settings.showDefault : true;
+                settings.brute = settings.brute !== undefined ? settings.brute : false;
+                settings.darkmode = settings.darkmode !== undefined ? settings.darkmode : false;
+                settings.cleanAuto = settings.cleanAuto !== undefined ? settings.cleanAuto : false;
+                settings.banlist = settings.banlist || [];
+                settings.bannedFromAutoCleanWebsites = settings.bannedFromAutoCleanWebsites || [];
+
                 // console.log(settings);
                 let settingsJSON = JSON.stringify(settings);
                 let blob = new Blob([settingsJSON], {type: 'application/json'});
@@ -338,15 +346,21 @@ function showSettings(){
         });
 
         function saveSettings(settings) {
+            console.log("Importation des paramètres :", settings);
             return new Promise((resolve, reject) => {
                 chrome.storage.local.set(settings, () => {
                     if (chrome.runtime.lastError) {
+                        console.error("Erreur d'importation :", chrome.runtime.lastError);
                         return reject(chrome.runtime.lastError);
                     }
+                    console.log("Paramètres importés avec succès.");
+                    loadContent.call(document.getElementById("settings"));
+                    toggleDarkMode(settings.darkmode);
                     resolve();
                 });
             });
         }
+
         async function importSettings(settings) {
             let {brute, cleanAuto, darkmode, banlist, bannedFromAutoCleanWebsites} = settings;
 
@@ -363,16 +377,11 @@ function showSettings(){
             console.log("Paramètres valides. Ils vont être importés:", settings);
             try {
                 await saveSettings(settings);
-                alert('Paramètres importés avec succès !');
-                window.location.href = "../popup/popup.html?tab=settings";
-
             } catch (error) {
                 alert("Erreur lors de l'importation des paramètres.")
                 console.error("Erreur lors de l'importation des paramètres:", error);
             }
         }
-
-
 
         importSettingsInput.addEventListener('change', (event) => {
             const file = event.target.files[0];
@@ -400,7 +409,5 @@ function showSettings(){
         exportAndImportSettingsContainer.appendChild(importSettingsContainer);
         settingsContainer.appendChild(exportAndImportSettingsContainer);
     });
-
-
 
 }
