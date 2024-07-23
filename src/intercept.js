@@ -9,20 +9,20 @@ function handleSubmit() {
 
     let authorized_selectors = ["id", "class", "querySelector"];
     if (!authorized_selectors.includes(banSelector)) {
-        alert('Merci de saisir un selector valide.');
+        console.error('Merci de saisir un selector valide.');
         return;
     }
-    let authorized_actions = ["hide", "removeClass", "addClass", "addStyle"];
+    let authorized_actions = ["hide", "removeClass", "addClass", "addStyle", "addAttribute", "removeAttribute"];
     if (!authorized_actions.includes(banAction)) {
-        alert('Merci de saisir une action valide.');
+        console.error('Merci de saisir une action valide.');
         return;
     }
 
-    let actions_that_needs_value = ["removeClass", "addClass", "addStyle"];
+    let actions_that_needs_value = ["removeClass", "addClass", "addStyle", "addAttribute", "removeAttribute"];
 
     if (actions_that_needs_value.includes(banAction)) {
         if(!banActionValue){
-            alert('Merci de saisir une valeur d\'action valide.');
+            console.error('Merci de saisir une valeur d\'action valide.');
             return;
         }
     }
@@ -65,7 +65,7 @@ function handleSubmit() {
                     loadContent.call(document.getElementById("list"));
                 });
             } else {
-                alert('Existe déjà');
+                console.error('Existe déjà');
             }
         });
     });

@@ -973,5 +973,13 @@
     "default": true,
     "selection": "ul:has(li):has(div):has(span):has(a[href*='/privacy'])",
     "selector": "querySelector"
+  },
+  {
+    "action": "removeAttribute",
+    "actionValue": "data-fast-cmp-locked",
+    "date": "2024-07-23T20:22:41.078Z",
+    "default": false,
+    "selection": "html[data-fast-cmp-locked]",
+    "selector": "querySelector"
   }
 ]

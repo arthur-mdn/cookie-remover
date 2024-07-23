@@ -76,6 +76,12 @@ function showHistory() {
                     }else if(action.action === "addStyle"){
                         iconDiv.innerHTML = `<i class="fa fa-paint-brush" aria-hidden="true"></i>`;
                         iconDiv.title = `Ajouter du style à l'élément`;
+                    } else if(action.action === "addAttribute"){
+                        iconDiv.innerHTML = `<i class="fa fa-plus-circle" aria-hidden="true"></i>`;
+                        iconDiv.title = `Ajouter un attribut à l'élément`;
+                    } else if(action.action === "removeAttribute"){
+                        iconDiv.innerHTML = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
+                        iconDiv.title = `Retirer un attribut à l'élément`;
                     }
 
                     let infosDiv = document.createElement('div');
@@ -103,6 +109,10 @@ function showHistory() {
                         actionNameDiv.textContent = `Ajouter la classe : .${action.actionValue} `;
                     }else if(action.action === "addStyle"){
                         actionNameDiv.textContent = `Ajouter du style : ${action.actionValue} `;
+                    } else if(action.action === "addAttribute"){
+                        actionNameDiv.textContent = `Ajouter un attribut : ${action.actionValue} `;
+                    } else if(action.action === "removeAttribute"){
+                        actionNameDiv.textContent = `Retirer un attribut : ${action.actionValue} `;
                     }
                     infosDiv.appendChild(actionNameDiv);
 

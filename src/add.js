@@ -56,6 +56,10 @@ function showForm(){
             modifyOptions.style.display = 'block';
             banActionValue.removeAttribute("disabled");
             banActionValueLabel.textContent = "Nom de la classe";
+        } else if (banAction.value === 'addAttribute' || banAction.value === 'removeAttribute') {
+            modifyOptions.style.display = 'block';
+            banActionValue.removeAttribute("disabled");
+            banActionValueLabel.textContent = "Nom de l'attribut";
         } else if (banAction.value === 'addStyle') {
             modifyOptions.style.display = 'block';
             banActionValue.removeAttribute("disabled");

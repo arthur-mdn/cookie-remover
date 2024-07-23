@@ -84,6 +84,9 @@ function showList(){
                 }else if(rule.action === "addStyle"){
                     iconDiv.innerHTML = `<i class="fa fa-paint-brush" aria-hidden="true"></i>`;
                     iconDiv.title = `Ajouter du style à l'élément`;
+                } else if(rule.action === "addAttribute"){
+                    iconDiv.innerHTML = `<i class="fa fa-plus-circle" aria-hidden="true"></i>`;
+                    iconDiv.title = `Ajouter un attribut à l'élément`;
                 }
 
 
@@ -109,6 +112,10 @@ function showList(){
                     actionDiv.textContent = `Ajouter la classe : .${rule.actionValue} `;
                 }else if(rule.action === "addStyle"){
                     actionDiv.textContent = `Ajouter du style : ${rule.actionValue} `;
+                } else if(rule.action === "addAttribute"){
+                    actionDiv.textContent = `Ajouter un attribut : ${rule.actionValue} `;
+                }else if(rule.action === "removeAttribute"){
+                    actionDiv.textContent = `Retirer un attribut : ${rule.actionValue} `;
                 }
                 // else if(rule.action == "querySelector"){
                 //     actionDiv.textContent = `querySelector("${rule.action}")`;

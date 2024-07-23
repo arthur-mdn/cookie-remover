@@ -133,6 +133,21 @@ function hideElements() {
                         actionDone = true;
                     }
                     break;
+
+                case "addAttribute":
+                    if (!element.hasAttribute(actionValue)) {
+                        element.setAttribute(actionValue, "");
+                        actionDone = true;
+                    }
+                    break;
+
+                case "removeAttribute":
+                    if (element.hasAttribute(actionValue)) {
+                        element.removeAttribute(actionValue);
+                        actionDone = true;
+                    }
+                    break;
+
                 case "addStyle":
                     let styleObject = styleStringToObject(actionValue);
                     let styleKeys = Object.keys(styleObject);

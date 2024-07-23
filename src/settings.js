@@ -378,7 +378,6 @@ function showSettings(){
             try {
                 await saveSettings(settings);
             } catch (error) {
-                alert("Erreur lors de l'importation des paramètres.")
                 console.error("Erreur lors de l'importation des paramètres:", error);
             }
         }
