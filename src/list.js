@@ -148,20 +148,24 @@ function showList(){
                     deleteButton.title = "Impossible de supprimer les actions par défaut";
                 }
                 deleteButton.innerHTML = "<i class=\"fa fa-trash\" aria-hidden=\"true\"></i>";
-                deleteButton.addEventListener('click', () => {
-                    // Check if the rule is not a default rule before removing
-                    let indexInBanlist = banlist.findIndex(banlistRule => banlistRule.date === rule.date && banlistRule.selector === rule.selector && banlistRule.selection === rule.selection && banlistRule.action === rule.action && banlistRule.actionValue === rule.actionValue && banlistRule.default === rule.default);
 
-                    if (indexInBanlist !== -1) {
-                        // Remove the rule from the banlist
-                        banlist.splice(indexInBanlist, 1);
-                        // Update the storage
-                        storage.local.set({banlist}, function() {
-                            // Reload the list
-                            showList();
-                        });
-                    }
-                });
+                // Check if the rule is not a default rule before removing
+                if(!rule.default){
+                    deleteButton.addEventListener('click', () => {
+
+                        let indexInBanlist = banlist.findIndex(banlistRule => banlistRule.date === rule.date && banlistRule.selector === rule.selector && banlistRule.selection === rule.selection && banlistRule.action === rule.action && banlistRule.actionValue === rule.actionValue && banlistRule.default === rule.default);
+
+                        if (indexInBanlist !== -1) {
+                            // Remove the rule from the banlist
+                            banlist.splice(indexInBanlist, 1);
+                            // Update the storage
+                            storage.local.set({banlist}, function() {
+                                // Reload the list
+                                showList();
+                            });
+                        }
+                    });
+                }
 
                 iconAndInfoDiv.appendChild(iconDiv);
                 iconAndInfoDiv.appendChild(infosDiv);
