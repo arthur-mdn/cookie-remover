@@ -10,3 +10,20 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
         }
     }
 });
+
+chrome.commands.onCommand.addListener((command) => {
+    if (command === "execute-actions") {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            let tab = tabs[0];
+            chrome.scripting.executeScript({
+                target: { tabId: tab.id },
+                files: ['popup/contentScript.js']
+            }, () => {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    func: () => launchBan() 
+                });
+            });
+        });
+    }
+});

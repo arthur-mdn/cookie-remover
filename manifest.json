@@ -18,5 +18,14 @@
       "matches": ["<all_urls>"],
       "js": ["popup/contentScript.js"]
     }
-  ]
+  ],
+  "commands": {
+    "execute-actions": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y",
+        "mac": "Command+Shift+Y"
+      },
+      "description": "Execute actions"
+    }
+  }
 }
