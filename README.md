@@ -44,12 +44,14 @@ Here is a list of possible actions :
 - Add / Remove an attribute to an element.
 - Add custom CSS to an element.
 
-![Available actions](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/possible_actions.png)
+![Available actions](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/available_actions.png)
 
 #### Selector
 You can select elements by their ID, CSS class, or using querySelector.
 
-## Parameters of the extension
+You can also use the dynamic selector to select an element by clicking on it.
+
+## Settings and customization
 You can customize the extension in the settings tab.
 - Display the default actions in the actions list.
 - Bruteforce hide mode: Instead of set display:none, the extension will destroy the element.
