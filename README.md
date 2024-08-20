@@ -1,6 +1,9 @@
-# cookie-remover
+# Cookie Remover - A Chomium web browser extension
 
 This plugin is designed to perform various actions on a webpage, with its primary feature being the ability to “hide” the persistent cookie banners and pop-ups that frequently appear on websites—without actually accepting them! This allows you to enjoy an uninterrupted and tracking-free browsing experience.
+
+![Cookie Remover Home Page](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/homepage.png)
+
 
 You can repurpose this tool for other uses, such as hiding or removing specific elements from a webpage, or adding and removing CSS classes from specific elements.
 
@@ -8,10 +11,13 @@ For ease of selection, you can choose elements by their ID, CSS class, or using 
 
 ## Installation
 
-1.	Download the source code.
-2.	Extract the archive.
-3.	Open Chrome or Edge.
-4.	Go to the Extensions page (chrome://extensions/ or edge://extensions/).
+#### Clone the repository
+```bash
+git clone git@github.com:arthur-mdn/cookie-remover.git
+```
+#### Install it as a Chrome extension
+- Open Chrome, Edge or Arc (Chromium web browsers).
+- Go to the Extensions page ([chrome://extensions/](chrome://extensions/) , [edge://extensions/](edge://extensions/) or [arc://extensions/](arc://extensions/)).
 5.	Enable Developer Mode.
 6.	Click on “Load unpacked extension.”
 7.	Select the root folder of the extracted extension.
