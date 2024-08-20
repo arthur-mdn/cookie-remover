@@ -53,7 +53,7 @@ You can select elements by their ID, CSS class, or using querySelector.
 #### Visual Selector
 You can select elements by clicking on them. The extension will automatically generate the selector for you.
 
-![Visual selector](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/dynamic-selector.png)
+![Visual selector](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/visual-selector.png)
 
 #### Possible actions
 Here is a list of possible actions :
