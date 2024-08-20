@@ -33,6 +33,10 @@ Press `Ctrl + Shift + Y` (Windows/Linux) or `Cmd + Shift + Y` (Mac).
 You can change the keyboard shortcut in your browser settings.
 ![Launch actions via keyboard shortcut](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/launch_via_shortcut.png)
 
+#### Auto clean-up
+You can enable the auto clean-up feature in the settings tab. The extension will automatically launch actions when you visit a website.
+> **Note:** This feature is experimental and may cause slow performance on some websites. It is disabled by default.
+
 ### Add an action
 You can add an action manually.
 
