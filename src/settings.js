@@ -407,6 +407,76 @@ function showSettings(){
 
         exportAndImportSettingsContainer.appendChild(importSettingsContainer);
         settingsContainer.appendChild(exportAndImportSettingsContainer);
+
+
+
+        let checkUpdatesContainer = document.createElement("div");
+        checkUpdatesContainer.style.display = "flex";
+        checkUpdatesContainer.style.justifyContent = "center";
+        checkUpdatesContainer.style.flexDirection = "column";
+        checkUpdatesContainer.style.marginTop = "10px";
+
+        let checkUpdatesLabel = document.createElement("p");
+        checkUpdatesLabel.innerText = "";
+        checkUpdatesLabel.style.textAlign = "center";
+        checkUpdatesLabel.style.display = "none";
+
+        let checkUpdatesButton = document.createElement("button");
+        checkUpdatesButton.id = "checkUpdatesButton";
+        checkUpdatesButton.innerHTML = "<i class=\"fa fa-refresh\" aria-hidden=\"true\"></i>\n Mettre à jour la liste d'action";
+
+        checkUpdatesButton.addEventListener('click', function() {
+            checkUpdatesLabel.style.display = "block";
+            checkUpdatesLabel.innerText = "Vérification des mises à jour...";
+            checkUpdatesLabel.style.color = "black";
+            checkUpdatesButton.setAttribute("disabled", "true");
+
+            fetch("https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/data/banlist.json")
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    chrome.storage.local.get("banlist", function(result) {
+                        let banlist = result.banlist || [];
+                        let newBanlist = [];
+                        data.forEach((item) => {
+                            let found = banlist.find(banlistItem => banlistItem.selector === item.selector && banlistItem.selection === item.selection);
+                            if(!found){
+                                newBanlist.push(item);
+                            }
+                        });
+                        if(newBanlist.length > 0){
+                            chrome.storage.local.set({"banlist": banlist.concat(newBanlist)}, function() {
+                                console.log('Banlist updated');
+                                if(newBanlist.length > 1){
+                                    checkUpdatesLabel.innerText = "Liste d'action mise à jour : " + newBanlist.length + " nouvelles actions.";
+                                }else{
+                                    checkUpdatesLabel.innerText = "Liste d'action mise à jour : " + newBanlist.length + " nouvelle action.";
+                                }
+                                checkUpdatesLabel.style.display = "block";
+                                checkUpdatesLabel.style.color = "green";
+                                checkUpdatesButton.removeAttribute("disabled");
+                            });
+                        }else{
+                            console.log("No new banlist item found");
+                            checkUpdatesLabel.innerText = "Vous êtes déjà à jour !";
+                            checkUpdatesLabel.style.color = "green";
+                            checkUpdatesLabel.style.display = "block";
+                            checkUpdatesButton.removeAttribute("disabled");
+                        }
+                    });
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    checkUpdatesLabel.innerText = "Erreur lors de la mise à jour : " + error;
+                    checkUpdatesLabel.style.display = "block";
+                    checkUpdatesLabel.style.color = "red";
+                    checkUpdatesLabel.style.display = "block";
+                    checkUpdatesButton.removeAttribute("disabled");
+                });
+        });
+        checkUpdatesContainer.appendChild(checkUpdatesLabel);
+        checkUpdatesContainer.appendChild(checkUpdatesButton);
+        settingsContainer.appendChild(checkUpdatesContainer);
     });
 
 }
