@@ -981,5 +981,48 @@
     "default": false,
     "selection": "html[data-fast-cmp-locked]",
     "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-01T07:44:49.061Z",
+    "default": false,
+    "selection": "ConsentWidget__container",
+    "selector": "class"
+  },
+  {
+    "action": "addStyle",
+    "actionValue": "overflow:auto!important",
+    "date": "2024-08-01T07:46:47.972Z",
+    "default": false,
+    "selection": "html",
+    "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-02T12:44:33.135Z",
+    "default": false,
+    "selection": "cc-container",
+    "selector": "class"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-11T16:15:24.605Z",
+    "default": false,
+    "selection": "div[style*=\"top: calc(-99px + 50vh);\"]",
+    "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-19T13:36:40.765Z",
+    "default": false,
+    "selection": "gdpr-hfp-wall",
+    "selector": "class"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-20T07:15:12.882Z",
+    "default": false,
+    "selection": "cc--main",
+    "selector": "id"
   }
 ]
