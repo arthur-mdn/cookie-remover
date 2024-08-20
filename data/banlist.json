@@ -1024,5 +1024,13 @@
     "default": true,
     "selection": "cc--main",
     "selector": "id"
+  },
+  {
+    "action": "removeClass",
+    "actionValue": "force--consent",
+    "date": "2024-08-20T12:54:47.016Z",
+    "default": true,
+    "selection": "html.force--consent.show--consent, html.force--consent.show--consent body",
+    "selector": "querySelector"
   }
 ]
