@@ -16,12 +16,12 @@ For ease of selection, you can choose elements by their ID, CSS class, or using 
 git clone git@github.com:arthur-mdn/cookie-remover.git
 ```
 #### Install it as a Chrome extension
-- Open Chrome, Edge or Arc (Chromium web browsers).
-- Go to the Extensions page ([chrome://extensions/](chrome://extensions/) , [edge://extensions/](edge://extensions/) or [arc://extensions/](arc://extensions/)).
-5.	Enable Developer Mode.
-6.	Click on “Load unpacked extension.”
-7.	Select the root folder of the extracted extension.
-8.	Enjoy!
+- Open Chrome, Edge or Arc (Any Chromium web browser).
+- Go to the Extensions page ([chrome://extensions/](chrome://extensions/) , [edge://extensions/](edge://extensions/) or [arc://extensions/](arc://extensions/)). 
+- Enable Developer Mode.
+- Click on “Load unpacked extension.”
+- Select the folder of the extension.
+- Enjoy!
 
 ## Usage
 
@@ -41,10 +41,19 @@ You can change the keyboard shortcut in your browser settings.
 
 #### Auto clean-up
 You can enable the auto clean-up feature in the settings tab. The extension will automatically launch actions when you visit a website.
-> **Note:** This feature is experimental and may cause slow performance on some websites. It is disabled by default.
+> ⚠️ This feature is experimental and may cause slow performance on some websites. It is disabled by default.
 
 ### Add an action
-You can add an action manually.
+You can add actions manually.
+> ℹ️ Actions are stored in the local storage of your browser and are not shared to anyone.
+
+#### Basic Selector
+You can select elements by their ID, CSS class, or using querySelector.
+
+#### Visual Selector
+You can select elements by clicking on them. The extension will automatically generate the selector for you.
+
+![Visual selector](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/dynamic-selector.png)
 
 #### Possible actions
 Here is a list of possible actions :
@@ -55,11 +64,6 @@ Here is a list of possible actions :
 - Add custom CSS to an element.
 
 ![Available actions](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/available_actions.png)
-
-#### Selector
-You can select elements by their ID, CSS class, or using querySelector.
-
-You can also use the dynamic selector to select an element by clicking on it.
 
 ## Settings and customization
 You can customize the extension in the settings tab.
