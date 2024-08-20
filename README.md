@@ -1,31 +1,69 @@
 # cookie-remover
 
-> Une extension Chrome / Edge pour retirer les bannières de cookies sans même les accepter.
+This plugin is designed to perform various actions on a webpage, with its primary feature being the ability to “hide” the persistent cookie banners and pop-ups that frequently appear on websites—without actually accepting them! This allows you to enjoy an uninterrupted and tracking-free browsing experience.
 
-**Développeur :** Arthur Mondon
+You can repurpose this tool for other uses, such as hiding or removing specific elements from a webpage, or adding and removing CSS classes from specific elements.
 
-**Août 2023**
-
-Ce plugin est utilisé pour exécuter des actions sur une page web.
-Son premier atout est de pouvoir "cacher" les bannières / popup incessants des cookies sur divers sites, sans les accepter ! Pour pouvoir profiter d'une expérience sans interruption et sans traçages.
-
-Vous pouvez détourner son utilisation pour d'autres usages. (Cacher / détruire des éléments spécifiques d'une page web, ajouter ou retirer une classe CSS à un élément spécifique).
-
-Pour faciliter la sélection, il est possible de choisir un élément via son id, une de ses classes CSS, ou grâce à querySelector.
-Un système de sélection d'élément au clic avec indicateur visuel de la sélection est disponible pour faciliter l'utilisation du plugin.
+For ease of selection, you can choose elements by their ID, CSS class, or using querySelector. The plugin also includes a visual element selector that lets you pick elements by clicking on them, making it even easier to use.
 
 ## Installation
 
-- Télécharger le code source.
-- Décompresser l'archive.
-- Ouvrir Chrome ou Edge.
-- Se rendre sur la page Extensions ("[chrome://extensions/](chrome://extensions/)" ou "[edge://extensions/](edge://extensions/)");
-- Activer le mode développeur.
-- Cliquer sur "Charger l’extension décompressée".
-- Sélectionner le dossier racine de l'extension téléchargée décompressée. 
-- Enjoy !
+1.	Download the source code.
+2.	Extract the archive.
+3.	Open Chrome or Edge.
+4.	Go to the Extensions page (chrome://extensions/ or edge://extensions/).
+5.	Enable Developer Mode.
+6.	Click on “Load unpacked extension.”
+7.	Select the root folder of the extracted extension.
+8.	Enjoy!
 
-## Avertissements
+## Usage
 
-- Votre navigateur peut vous indiquer que cette extension accède aux données du site Web. Ceci est généré automatiquement, car le plugin analyse le code source HTML pour masquer intelligemment les bannières de notification. Il ne surveille ni n'enregistre votre historique de navigation ou vos informations personnelles. 
-- L'historique des actions est stocké localement et n'est jamais transmis en dehors de votre appareil.
+### Launch actions
+
+#### By clicking on the extension icon
+- Click on the extension icon in the browser toolbar.
+- Click on the “Clean-up” button.
+
+![Launch actions](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/launch_actions.png)
+
+#### By using the keyboard shortcut
+Press `Ctrl + Shift + Y` (Windows/Linux) or `Cmd + Shift + Y` (Mac).
+
+You can change the keyboard shortcut in your browser settings.
+![Launch actions via keyboard shortcut](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/launch_via_shortcut.png)
+
+### Add an action
+You can add an action manually.
+
+#### Possible actions
+Here is a list of possible actions :
+
+- Hide an element.
+- Add / Remove a CSS class to an element.
+- Add / Remove an attribute to an element.
+- Add custom CSS to an element.
+
+![Available actions](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/possible_actions.png)
+
+#### Selector
+You can select elements by their ID, CSS class, or using querySelector.
+
+## Parameters of the extension
+You can customize the extension in the settings tab.
+- Display the default actions in the actions list.
+- Bruteforce hide mode: Instead of set display:none, the extension will destroy the element.
+- Enable / disable dark mode.
+- Export / Import parameters.
+- Clear the history of actions performed by the extension.
+- Check updates of the banlist.
+
+![Settings](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/parameters.png)
+
+## Warnings
+
+Your browser may notify you that this extension has access to website data. This is automatically generated because the plugin intelligently analyzes the HTML source code to hide notification banners. It does not monitor or store your browsing history or personal information.
+
+The history of actions performed by the plugin is stored locally and is never transmitted outside of your device.
+
+**Developer :** Arthur Mondon
