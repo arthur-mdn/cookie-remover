@@ -60,7 +60,7 @@ You can customize the extension in the settings tab.
 - Clear the history of actions performed by the extension.
 - Check updates of the banlist.
 
-![Settings](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/parameters.png)
+![Settings](https://raw.githubusercontent.com/arthur-mdn/cookie-remover/main/illustrations/settings.png)
 
 ## Warnings
 
