@@ -1032,5 +1032,26 @@
     "default": true,
     "selection": "html.force--consent.show--consent, html.force--consent.show--consent body",
     "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T09:41:02.368Z",
+    "default": false,
+    "selection": "div[class*=\"__tealium\"], div[id*=\"__tealium\"]",
+    "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T09:50:17.707Z",
+    "default": false,
+    "selection": "age-popup",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T09:53:46.419Z",
+    "default": false,
+    "selection": "div[class*=\"iubenda\"]",
+    "selector": "querySelector"
   }
 ]
