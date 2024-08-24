@@ -84,7 +84,7 @@ function hideElements() {
             return elementHTML.slice(0, closingTagIndex + 1);
         }
 
-        function handleAction(element, action, actionValue, brute) {
+        function handleAction(element, action, actionValue, brute, forceImportant) {
             let actionDone = false;
             switch (action) {
                 case "hide":
@@ -96,6 +96,8 @@ function hideElements() {
                             element.remove();
                             action = "destroy";
                             actionDone = true;
+                        } else if (forceImportant) {
+                            element.style.setProperty("display", "none", "important");
                         } else if (element.style.display !== "none") {
                             element.style.display = "none";
                             actionDone = true;
@@ -179,7 +181,7 @@ function hideElements() {
 
 
         chrome.storage.local.get(
-            ["banlist", "brute"],
+            ["banlist", "brute", "forceImportant"],
             function (result) {
                 let lastCount = 0;
                 let timestampOfLaunching = new Date().toISOString();
@@ -200,7 +202,7 @@ function hideElements() {
                         case "id":
                             const element = document.getElementById(selection);
                             if (element) {
-                                const actionResult = handleAction(element, action, actionValue, result.brute);
+                                const actionResult = handleAction(element, action, actionValue, result.brute, result.forceImportant);
                                 if (actionResult.actionDone) {
                                     actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {
@@ -215,7 +217,7 @@ function hideElements() {
                         case "class":
                             const elements = document.getElementsByClassName(selection);
                             for (let i = 0; i < elements.length; i++) {
-                                const actionResult = handleAction(elements[i], action, actionValue, result.brute);
+                                const actionResult = handleAction(elements[i], action, actionValue, result.brute, result.forceImportant);
                                 if (actionResult.actionDone) {
                                     actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {
@@ -230,7 +232,7 @@ function hideElements() {
                         case "querySelector":
                             const selectedElements = document.querySelectorAll(selection);
                             for (let i = 0; i < selectedElements.length; i++) {
-                                const actionResult = handleAction(selectedElements[i], action, actionValue, result.brute);
+                                const actionResult = handleAction(selectedElements[i], action, actionValue, result.brute, result.forceImportant);
                                 if (actionResult.actionDone) {
                                     actionInfo.elementHTML = actionResult.elementHTML;
                                     addToHistory(actionInfo, result.brute).then(() => {

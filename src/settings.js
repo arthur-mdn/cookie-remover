@@ -99,6 +99,34 @@ function showSettings(){
         settingsContainer.appendChild(bruteContainer);
     });
 
+    chrome.storage.local.get("forceImportant", function(result) {
+        let forceImportant = result.forceImportant || false;
+
+        let forceImportantContainer = document.createElement("div");
+
+        let forceImportantCheckbox = document.createElement("input");
+        forceImportantCheckbox.type = "checkbox";
+        forceImportantCheckbox.id = "forceImportantCheckbox";
+        forceImportantCheckbox.checked = forceImportant;
+
+        forceImportantCheckbox.addEventListener('change', function() {
+            let checked = this.checked;
+            chrome.storage.local.set({"forceImportant": checked}, function() {
+                console.log('forceImportant set to ' + checked);
+            });
+        });
+
+        let forceImportantLabel = document.createElement("label");
+        forceImportantLabel.innerText = "Forcer le !important";
+        forceImportantLabel.setAttribute("for","forceImportantCheckbox");
+
+        forceImportantContainer.appendChild(forceImportantCheckbox);
+
+        forceImportantContainer.appendChild(forceImportantLabel);
+
+        settingsContainer.appendChild(forceImportantContainer);
+    });
+
     chrome.storage.local.get("darkmode", function(result) {
         let darkmode = result.darkmode || false;
 
