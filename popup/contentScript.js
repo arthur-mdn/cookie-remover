@@ -98,6 +98,7 @@ function hideElements() {
                             actionDone = true;
                         } else if (forceImportant) {
                             element.style.setProperty("display", "none", "important");
+                            actionDone = true;
                         } else if (element.style.display !== "none") {
                             element.style.display = "none";
                             actionDone = true;
