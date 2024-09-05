@@ -1036,56 +1036,56 @@
   {
     "action": "hide",
     "date": "2024-08-24T09:41:02.368Z",
-    "default": false,
+    "default": true,
     "selection": "div[class*=\"__tealium\"], div[id*=\"__tealium\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-08-24T09:50:17.707Z",
-    "default": false,
+    "default": true,
     "selection": "age-popup",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-08-24T09:53:46.419Z",
-    "default": false,
+    "default": true,
     "selection": "div[class*=\"iubenda\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-08-21T08:52:55.813Z",
-    "default": false,
+    "default": true,
     "selection": "div[style*=\"bottom\"]:has(div):has(div):has(div):has(img[role=\"presentation\"])",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-08-21T14:25:08.472Z",
-    "default": false,
+    "default": true,
     "selection": "shreddit-async-loader[bundlename=\"reddit_cookie_banner\"]",
     "selector": "querySelector"
   },
   {
     "action": "hide",
     "date": "2024-09-04T08:34:17.346Z",
-    "default": false,
+    "default": true,
     "selection": "cmp-app-container",
     "selector": "id"
   },
   {
     "action": "hide",
     "date": "2024-09-05T07:20:44.754Z",
-    "default": false,
+    "default": true,
     "selection": "*[x-data=\"cookiesConsent\"]",
     "selector": "querySelector"
   },
   {
     "action": "destroy",
     "date": "2024-09-05T09:17:42.018Z",
-    "default": false,
+    "default": true,
     "selection": "fc-consent-root",
     "selector": "class",
     "sourceUrl": "https://www.mon-ip.com/"
