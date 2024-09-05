@@ -75,6 +75,9 @@ function showList(){
                 if(rule.action === "hide"){
                     iconDiv.innerHTML = `<i class="fa fa-times-circle" aria-hidden="true"></i>`;
                     iconDiv.title = `Cacher l'élément`;
+                }else if(rule.action === "destroy"){
+                    iconDiv.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>`;
+                    iconDiv.title = `Détruire l'élément`;
                 }else if(rule.action === "removeClass"){
                     iconDiv.innerHTML = `<i class="fa fa-minus-circle" aria-hidden="true"></i>`;
                     iconDiv.title = `Retirer une classe à l'élément`;
@@ -108,6 +111,8 @@ function showList(){
                     actionDiv.textContent = `Cacher l'élément`;
                 }else if(rule.action === "removeClass"){
                     actionDiv.textContent = `Retirer la classe : .${rule.actionValue} `;
+                }else if(rule.action === "destroy"){
+                    actionDiv.textContent = `Détruire l'élément`;
                 }else if(rule.action === "addClass"){
                     actionDiv.textContent = `Ajouter la classe : .${rule.actionValue} `;
                 }else if(rule.action === "addStyle"){

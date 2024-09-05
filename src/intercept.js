@@ -12,7 +12,7 @@ function handleSubmit() {
         console.error('Merci de saisir un selector valide.');
         return;
     }
-    let authorized_actions = ["hide", "removeClass", "addClass", "addStyle", "addAttribute", "removeAttribute"];
+    let authorized_actions = ["hide","destroy", "removeClass", "addClass", "addStyle", "addAttribute", "removeAttribute"];
     if (!authorized_actions.includes(banAction)) {
         console.error('Merci de saisir une action valide.');
         return;
