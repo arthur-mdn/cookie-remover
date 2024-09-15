@@ -105,7 +105,8 @@ function hideElements() {
                         }
                     } else {
                         console.log(
-                            "Tentative de cacher ou de détruire un élément <html> ou <body>"
+                            "Tentative de cacher ou de détruire un élément <html> ou <body>",
+                            element
                         );
                     }
                     break;
@@ -119,7 +120,8 @@ function hideElements() {
                         actionDone = true;
                     } else {
                         console.log(
-                            "Tentative de détruire un élément <html> ou <body>"
+                            "Tentative de détruire un élément <html> ou <body>",
+                            element
                         );
                     }
                     break;
@@ -273,26 +275,14 @@ function launchBan() {
         const currentDomain = getHostName(currentPageUrl); // get the domain name
         if (!bannedFromAutoCleanWebsites.includes(currentDomain)) { // check if the domain name is not in the banned pages
             handleBanAll(banlist);
-            // Parcourir chaque règle de la banlist
-            banlist.forEach((rule) => {
-                const { selector, selection } = rule; // Récupérer le sélecteur et la sélection de chaque règle
 
-                let observer = new MutationObserver((mutations) => {
-                    handleBanAll(banlist);
-                });
+            setTimeout(() => {
+                handleBanAll(banlist);
+            }, 5000);
 
-                // Start observing the document
-                observer.observe(document, { childList: true, subtree: true });
-
-                // Handle tab visibility changes
-                document.addEventListener("visibilitychange", function() {
-                    if (document.hidden){
-                        observer.disconnect();
-                    } else {
-                        observer.observe(document, { childList: true, subtree: true });
-                    }
-                });
-            });
+            setTimeout(() => {
+                handleBanAll(banlist);
+            }, 10000);
         }
     });
 }
