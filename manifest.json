@@ -1,6 +1,6 @@
 {
   "name": "Cookie Remover",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "manifest_version": 3,
   "permissions": ["scripting", "activeTab", "tabs", "storage", "unlimitedStorage"],
   "background": {
