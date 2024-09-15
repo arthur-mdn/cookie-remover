@@ -1087,7 +1087,91 @@
     "date": "2024-09-05T09:17:42.018Z",
     "default": true,
     "selection": "fc-consent-root",
-    "selector": "class",
-    "sourceUrl": "https://www.mon-ip.com/"
+    "selector": "class"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T10:08:54.092Z",
+    "default": true,
+    "selection": "needsclick",
+    "selector": "class"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T10:15:49.387Z",
+    "default": true,
+    "selection": "magcn-cookie-notice",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-24T12:50:54.561Z",
+    "default": true,
+    "selection": "cookieChoiceInfo",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-25T13:42:38.874Z",
+    "default": true,
+    "selection": "cookieBanner",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-26T12:25:12.817Z",
+    "default": true,
+    "selection": "cookie-notice",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-27T08:59:32.242Z",
+    "default": true,
+    "selection": "*[id*=\"cookie-banner\"]",
+    "selector": "querySelector"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-31T09:51:33.712Z",
+    "default": true,
+    "selection": "cookie-consent",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-31T16:54:25.114Z",
+    "default": true,
+    "selection": "js-cc-modal",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-08-31T16:54:50.761Z",
+    "default": true,
+    "selection": "paywall_no_variance",
+    "selector": "id"
+  },
+  {
+    "action": "hide",
+    "date": "2024-09-02T16:50:18.848Z",
+    "default": true,
+    "selection": "div[consent-skip-blocker=\"1\"]",
+    "selector": "querySelector"
+  },
+  {
+    "action": "removeClass",
+    "actionValue": "no-touch",
+    "date": "2024-09-02T17:19:01.915Z",
+    "default": true,
+    "selection": "no-touch",
+    "selector": "class"
+  },
+  {
+    "action": "hide",
+    "date": "2024-09-04T18:06:22.695Z",
+    "default": true,
+    "selection": "grpd-consent",
+    "selector": "id"
   }
 ]
